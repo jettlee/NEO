@@ -1,5 +1,6 @@
 Galaxy.Settings = Galaxy.Settings || {};
-
+var zoom_audio = new Audio("../../sound/zoom-in.wav");
+var zoomed_in = false;
 Galaxy.CameraMotions = function(camera){
     _.bindAll(this,'startAnimation','endAnimation');
     this.target = Galaxy.Settings.cameraDefaultTarget.clone();
@@ -21,6 +22,8 @@ Galaxy.CameraMotions.prototype = {
     endAnimation: function(){this.isAnimating = false;},
     zoomAndDollyToPoint: function(point,callback){
         console.log("camera zoom in");
+        zoom_audio.play();
+        zoomed_in = true;
         if (this.isAnimating === true) return;
         // temporarily: the first click will zoom in, and we'll strafe after that.
         // if (this.firstClick === false) {
@@ -84,7 +87,6 @@ Galaxy.CameraMotions.prototype = {
         dest.sub(fromPoint.clone());
         dest.add(current.clone());
         //console.log("\n\n",fromPoint,toPoint,current,dest);
-
         if (that.isAnimating === true) return;
 
         TweenMax.to(this.camera.position,duration,{x: dest.x,y: dest.y, z: dest.z,
@@ -99,6 +101,10 @@ Galaxy.CameraMotions.prototype = {
     },
 
     reset: function(callback){
+        if(zoomed_in == true){
+          zoom_audio.play();
+          zoomed_in = false;
+        }
         var duration = 5,
             that = this,
             home = Galaxy.Settings.cameraDefaultPosition.clone(),

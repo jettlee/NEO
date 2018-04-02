@@ -63,8 +63,16 @@
     <div id="container"></div>
     <canvas id="three-canvas" style="width: 100%; height: 100%"></canvas>
     <script type="text/javascript">
-    Pace.on('done', function(){ Pace.off(); });
-
+    Pace.on('done', function(){
+      Pace.off();
+      var bgm = new Audio("../../sound/background.mp3");
+      bgm.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+      }, false);
+      bgm.play();
+      bgm.volume = 0.5;
+    });
     var scriptsList = [];
 
     scriptsList.push("src/three.min.js");
