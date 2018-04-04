@@ -23,8 +23,8 @@ app.get("/", function(req, res) {
 });
 
 
-server.listen(5000, function(){
-    console.log("server running on port 5000...");
+server.listen(8080, function(){
+    console.log("server running on port 8080...");
 });
 
 // Add the WebSocket handlers

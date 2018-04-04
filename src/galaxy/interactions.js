@@ -166,10 +166,12 @@ Galaxy.InteractionHandler.prototype = {
                     //var vertex = new THREE.Vector3(self.currentTagPos.x + randomNum[0], self.currentTagPos.y + randomNum[1], self.currentTagPos.z + randomNum[2]);
                     var vertex = new THREE.Vector3(self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10);
                     particles.vertices.push(vertex);
+                    var planetImgArray  = ["./images/unknown_planets.jpg", "./images/test3.jpg", "./images/test2.png", "./images/test5.jpg", "./images/test1.jpeg", "./images/test4.jpg"];
+                    var planetIndex = Math.floor(Math.random() * Math.floor(planetImgArray.length));
 
                     var pMaterial = new THREE.ParticleBasicMaterial({
                         size: 100,
-                        map: THREE.ImageUtils.loadTexture("./images/test3.jpg"),
+                        map: THREE.ImageUtils.loadTexture(planetImgArray[planetIndex]),
                         blending: THREE.AdditiveBlending,
                         transparent: false,
                         depthTest: false
