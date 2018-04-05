@@ -2,6 +2,7 @@ $(document).ready(function(){
     Galaxy.Utilities = new Galaxy.Utils(Galaxy.Settings);
     Galaxy.Composers = [];
 
+
     var camera, renderer, interactionHandler;
     var particleSystemsArray = [], sky;
     var attributes, uniforms,shaderMaterialsArray = [];

@@ -1,3 +1,6 @@
+// create socket to communicate with server
+var interactionSocket = io();
+
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent');
@@ -133,6 +136,7 @@ Galaxy.InteractionHandler.prototype = {
         // if the click area is around earth mesh and in a zoom-in mode,
         // then go to neuroglancer; otherwise, reset
         if (self.tagClickItem !== null && clickRange.locationX >= 0.4 && clickRange.locationX <= 0.6 && clickRange.locationY >= 0.37 && clickRange.locationY <= 0.63) {
+
             $('body').fadeOut(600, function(){
                 $('#iframe').height($(document).height());
                 $('#iframe').show();
@@ -153,8 +157,11 @@ Galaxy.InteractionHandler.prototype = {
         // }
     },
 
-    iframeSubmitClickEvent: function(){
+    iframeSubmitClickEvent: function(e){
         var self = this;
+        e.preventDefault();
+        e.stopPropagation();
+
         $('body').fadeOut(600, function(){
             $('#iframe').height(0);
             $('#iframe').hide();
@@ -163,7 +170,6 @@ Galaxy.InteractionHandler.prototype = {
 
                     var particles = new THREE.Geometry();
                     var randomNum = self.integerRandom();
-                    //var vertex = new THREE.Vector3(self.currentTagPos.x + randomNum[0], self.currentTagPos.y + randomNum[1], self.currentTagPos.z + randomNum[2]);
                     var vertex = new THREE.Vector3(self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10);
                     particles.vertices.push(vertex);
                     var planetImgArray  = ["./images/unknown_planets.jpg", "./images/test3.jpg", "./images/test2.png", "./images/test5.jpg", "./images/test1.jpeg", "./images/test4.jpg"];
@@ -183,13 +189,16 @@ Galaxy.InteractionHandler.prototype = {
                         pMaterial);
 
                     // add it to the scene
-
                     this.__glowingParticleSystems = this.__glowingParticleSystems || [];
                     this.__glowingParticleSystems.push(particleSystem);
                     Galaxy.TopScene.add(particleSystem);
+                    interactionSocket.emit('add', {
+                        particle : particles,
+                        pMaterial : pMaterial
+                    });
                 }, 500);
-            })
-        })
+            });
+        });
     },
 
     integerRandom: function(){

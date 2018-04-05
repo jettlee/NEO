@@ -27,11 +27,21 @@ server.listen(8080, function(){
     console.log("server running on port 8080...");
 });
 
+
+var particles = [];
+var pMaterials = [];
+
 // Add the WebSocket handlers
 io.on('connection', function(socket) {
-    console.log(socket);
+    socket.on('add', function(data){
+        particles.push(data.particle);
+        pMaterials.push(data.pMaterial);
+        console.log(particles.length);
+        io.sockets.emit('planet', data);
+    });
 });
 
-setInterval(function() {
-  io.sockets.emit('message', 'hi!');
-}, 1000);
+
+// setInterval(function() {
+//     io.sockets.emit('planets', planets);
+// }, 2000);
