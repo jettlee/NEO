@@ -36,7 +36,6 @@ io.on('connection', function(socket) {
     socket.on('add', function(data){
         particles.push(data.particle);
         pMaterials.push(data.pMaterial);
-        console.log(particles.length);
         io.sockets.emit('planet', data);
     });
 });
