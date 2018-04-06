@@ -1,5 +1,6 @@
 // create socket to communicate with server
 var interactionSocket = io();
+interactionSocket.emit('new player');
 
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
@@ -167,7 +168,6 @@ Galaxy.InteractionHandler.prototype = {
             $('#iframe').hide();
             $('body').fadeIn(600, function(){
                 _.delay(function(){
-
                     var particles = new THREE.Geometry();
                     var randomNum = self.integerRandom();
                     var vertex = new THREE.Vector3(self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10);
@@ -192,10 +192,13 @@ Galaxy.InteractionHandler.prototype = {
                     this.__glowingParticleSystems = this.__glowingParticleSystems || [];
                     this.__glowingParticleSystems.push(particleSystem);
                     Galaxy.TopScene.add(particleSystem);
-                    interactionSocket.emit('add', {
-                        particle : particles,
-                        pMaterial : pMaterial
-                    });
+
+                    // emit planet data to server
+                    var planetData = {
+                        vertex : [self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10],
+                        texturePath : planetImgArray[planetIndex]
+                    };
+                    interactionSocket.emit('add', planetData);
                 }, 500);
             });
         });

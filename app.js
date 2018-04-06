@@ -27,20 +27,23 @@ server.listen(8080, function(){
     console.log("server running on port 8080...");
 });
 
-
-var particles = [];
-var pMaterials = [];
+var players = {};
 
 // Add the WebSocket handlers
 io.on('connection', function(socket) {
+    socket.on('new player', function(){
+        players[socket.id] = {
+            energy: 100,
+            darkPower: 100
+        };
+        console.log("a new player connecting..., " + "player id: " + socket.id + ", current player number: " + Object.keys(players).length);
+        console.log(players);
+    });
+
     socket.on('add', function(data){
-        particles.push(data.particle);
-        pMaterials.push(data.pMaterial);
+        console.log(socket.id);
+        players[socket.id].energy -= 10;
+        console.log("player id: " + socket.id + " exploring..." + " consuming energy 10, and remaining energy: " + players[socket.id].energy + " darkPower: " + players[socket.id].darkPower);
         io.sockets.emit('planet', data);
     });
 });
-
-
-// setInterval(function() {
-//     io.sockets.emit('planets', planets);
-// }, 2000);
