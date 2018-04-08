@@ -2,6 +2,17 @@
 var interactionSocket = io();
 interactionSocket.emit('new player');
 
+var start = 0;
+function clicked(str){
+  if(str=="start"){
+    start = 1;
+    return null;
+  }
+  if(start == 1){
+    return true;
+  } else return false;
+}
+
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent');
