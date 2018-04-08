@@ -1,6 +1,15 @@
 // create socket to communicate with server
 var interactionSocket = io();
-
+var start = 0;
+function clicked(str){
+  if(str=="start"){
+    start = 1;
+    return null;
+  }
+  if(start == 1){
+    return true;
+  } else return false;
+}
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent');
@@ -172,7 +181,7 @@ Galaxy.InteractionHandler.prototype = {
                     var randomNum = self.integerRandom();
                     var vertex = new THREE.Vector3(self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10);
                     particles.vertices.push(vertex);
-                    var planetImgArray  = ["./images/unknown_planets.jpg", "./images/test3.jpg", "./images/test2.png", "./images/test5.jpg", "./images/test1.jpeg", "./images/test4.jpg"];
+                    var planetImgArray  = ["./images/ang-transparent.png","./images/ash-transparent.png","./images/ero-transparent.png","./images/fire-transparent.png","./images/glee-transparent.png","./images/gold-transparent.png","./images/jade-transparent.png","./images/test3-transparent.png","./images/test5-transparent.png"];
                     var planetIndex = Math.floor(Math.random() * Math.floor(planetImgArray.length));
 
                     var pMaterial = new THREE.ParticleBasicMaterial({
@@ -182,7 +191,6 @@ Galaxy.InteractionHandler.prototype = {
                         transparent: false,
                         depthTest: false
                     });
-
                     // create the particle system
                     var particleSystem = new THREE.ParticleSystem(
                         particles,

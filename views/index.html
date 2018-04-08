@@ -6,7 +6,8 @@
     <script type="text/javascript" src="src/head.load.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="src/galaxy_styles.css">
-
+    <link rel="icon" type="image/png" href="images/logo-2.png">
+    <link rel="stylesheet" type="text/css" href="src/main.css">
     <script>
     paceOptions = {
         restartOnRequestAfter: false,
@@ -64,16 +65,19 @@
     </div>
     <div id="container"></div>
     <div>
-      <button type="button" id="mute" onclick="muteSound()" name="button" style="display:none;position:absolute;z-index:10;bottom:10px;right:10px;zoom:70%;background:rgba(0,0,0,0.01);border:none"><img src="images/Mute.png" border="0"></button>
-      <button type="button" id="unmute" onclick="unmuteSound()" name="button" style="display:none;position:absolute;z-index:10;bottom:10px;right:10px;zoom:70%;background:rgba(0,0,0,0.01);border:none"><img src="images/Unmute.png" border="0"></button>
-      <button type="button" id="full-screen" onclick="fullScreen()" name="button" style="display:none;position:absolute;z-index:10;bottom:10px;right:80px;zoom:70%;background:rgba(0,0,0,0.01);border:none"><img src="images/Full-Screen.png" border="0"></button>
-      <button type="button" id="exit-full-screen" onclick="exitFullScreen()" name="button" style="display:none;position:absolute;z-index:10;bottom:10px;right:80px;zoom:70%;background:rgba(0,0,0,0.01);border:none"><img src="images/Normal-Screen.png" border="0"></button>
+      <button type="button" id="mute" onclick="muteSound()" name="button"><img src="images/Mute.png" border="0"></button>
+      <button type="button" id="unmute" onclick="unmuteSound()" name="button"><img src="images/Unmute.png" border="0"></button>
+      <button type="button" id="full-screen" onclick="fullScreen()" name="button"><img src="images/Full-Screen.png" border="0"></button>
+      <button type="button" id="exit-full-screen" onclick="exitFullScreen()" name="button"><img src="images/Normal-Screen.png" border="0"></button>
+    </div>
+    <div id="start">
+      <h1 style="font-size:70px;position:relative;left:45%;top:35%;color:white">NEO</h1>
+      <button type="button" name="button" id="startbtn" onclick="startGame()" style="position:relative;left:48%;margin-top:15%">Start</button>
     </div>
     <canvas id="three-canvas" style="width: 100%; height: 100%"></canvas>
     <script type="text/javascript">
 
     var bgm;
-    var progress = 0;
     Pace.on('done', function(){
       Pace.off();
       bgm = new Audio("../../sound/background.mp3");
@@ -83,14 +87,27 @@
       }, false);
       bgm.play();
       bgm.volume = 0.5;
-      progress = 1;
       document.getElementById("mute").style.display = "block";
       document.getElementById("full-screen").style.display = "block";
+      document.getElementById("start").style.display = "block";
     });
 
-    Pace.on('done', function(){ Pace.off(); });
-
+    // Pace.on('done', function(){ Pace.off(); });
     var scriptsList = [];
+    function startGame(){
+      clicked("start");
+      var el = document.getElementById("start");
+      removeFadeOut(el, 5000);
+    }
+
+    function removeFadeOut(el, speed) {
+      var seconds = speed/1000;
+      el.style.transition = "opacity" + seconds + "s ease";
+      el.style.opacity = 0;
+      setTimeout(function() {
+        el.parentNode.removeChild(el);
+      }, speed);
+    }
 
     function muteSound(){
       bgm.pause();

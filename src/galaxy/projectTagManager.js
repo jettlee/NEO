@@ -23,7 +23,7 @@ Galaxy.ProjectTagManager = function(particleSystemsArray,camera,settings,data){
     this.projectData = data;
     this.$container = $('body');
 
-    this.planetsArray = ["./images/unknown_planets.jpg", "./images/test3.jpg", "./images/test2.png", "./images/test5.jpg", "./images/test1.jpeg", "./images/test4.jpg"];
+    this.planetsArray = ["./images/ang-transparent.png","./images/ash-transparent.png","./images/ero-transparent.png","./images/fire-transparent.png","./images/glee-transparent.png","./images/gold-transparent.png","./images/jade-transparent.png","./images/test3-transparent.png","./images/test5-transparent.png"];
     this.countForPlanets = 0;
     this.addPickRandomMixin();
 
@@ -43,6 +43,9 @@ Galaxy.ProjectTagManager.prototype = {
         this.__projectSubset = null;
     },
     buildTagForProjectId: function(projectId){
+      if(!clicked("check")) {
+        return ;
+      }
         if (_.has(this.activeTags,projectId)){
 //            if (!_.isUndefined(console)) {
 //                console.warn("You can't add a tag for a project that's already tagged!");
@@ -70,6 +73,7 @@ Galaxy.ProjectTagManager.prototype = {
         tag.on('click',{context: this},this.handleTagClick);
 
         return tag;
+
     },
 
     planetsRandom: function() {

@@ -1,0 +1,69 @@
+#start {
+  background-color: rgba(0,0,0,0.5);
+  display:none;
+  position:absolute;
+  z-index:10;
+  height: 100%;
+  width: 100%;
+  /*left:45%;
+  bottom:40%;*/
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#mute, #unmute {
+  display:none;
+  position:absolute;
+  z-index:10;
+  bottom:10px;
+  right:10px;
+  zoom:70%;
+  background:rgba(0,0,0,0.01);
+  border:none
+}
+
+#full-screen, #exit-full-screen {
+  display:none;
+  position:absolute;
+  z-index:10;
+  bottom:10px;
+  right:80px;
+  zoom:70%;
+  background:rgba(0,0,0,0.01);
+  border:none
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}

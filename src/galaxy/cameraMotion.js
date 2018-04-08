@@ -33,6 +33,8 @@ Galaxy.CameraMotions.prototype = {
         // }
         this.firstClick = false;
 
+        // document.getElementById("planetInfo").style.display = "block";
+
         var that = this,
             pointClone = point.clone(),
             cameraPath = this.cameraPathToPoint(this.camera.position.clone(), point.clone()),
@@ -40,7 +42,6 @@ Galaxy.CameraMotions.prototype = {
             duration = 1.3,
             upClone = Galaxy.Settings.cameraDefaultUp.clone(),
             targetCurrent = this.target.clone();
-
         // center the clicked particle
         TweenMax.to(targetCurrent,duration/1.5,{
             x: pointClone.x,

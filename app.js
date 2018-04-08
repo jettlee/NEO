@@ -5,7 +5,7 @@ var http = require('http');
 
 var app = express();
 var server = http.Server(app);
-var io = socketIO(server);
+var io = socketIO(server, {transports: ['websocket']});
 
 
 //app.set("view engine", "ejs");
@@ -16,7 +16,7 @@ app.use('/images', express.static(__dirname + '/images'));
 app.use('/src', express.static(__dirname + '/src'));
 app.use('/src/bootstrap/css', express.static(__dirname + '/src/bootstrap/css'));
 app.use('/src/THREE-plugins', express.static(__dirname + '/src/THREE-plugins'));
-
+app.use('/images/favicon.ico', express.favicon(__dirname + '/images/favicon.ico'));
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname + '/views/index.html'));
