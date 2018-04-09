@@ -148,7 +148,11 @@ Galaxy.InteractionHandler.prototype = {
         // if the click area is around earth mesh and in a zoom-in mode,
         // then go to neuroglancer; otherwise, reset
         if (self.tagClickItem !== null && clickRange.locationX >= 0.4 && clickRange.locationX <= 0.6 && clickRange.locationY >= 0.37 && clickRange.locationY <= 0.63) {
-
+            document.getElementById("neomatter").style.display = "none";
+            document.getElementById("title-info").style.display = "none";
+            document.getElementById("currentPlayers").style.display = "none";
+            document.getElementById("coordinates").style.display = "none";
+            document.getElementById("poe").style.display = "none";
             $('body').fadeOut(600, function(){
                 $('#iframe').height($(document).height());
                 $('#iframe').show();
@@ -173,7 +177,11 @@ Galaxy.InteractionHandler.prototype = {
         var self = this;
         e.preventDefault();
         e.stopPropagation();
-
+        document.getElementById("neomatter").style.display = "block";
+        document.getElementById("title-info").style.display = "block";
+        document.getElementById("currentPlayers").style.display = "block";
+        document.getElementById("coordinates").style.display = "block";
+        document.getElementById("poe").style.display = "block";
         $('body').fadeOut(600, function(){
             $('#iframe').height(0);
             $('#iframe').hide();

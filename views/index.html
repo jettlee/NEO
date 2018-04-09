@@ -70,9 +70,17 @@
       <button type="button" id="full-screen" onclick="fullScreen()" name="button"><img src="images/Full-Screen.png" border="0"></button>
       <button type="button" id="exit-full-screen" onclick="exitFullScreen()" name="button"><img src="images/Normal-Screen.png" border="0"></button>
     </div>
-    <div id="start">
+    <div id="start" class="start">
       <h1 style="font-size:70px;position:relative;left:45%;top:35%;color:white">NEO</h1>
       <button type="button" name="button" id="startbtn" onclick="startGame()" style="position:relative;left:48%;margin-top:15%">Start</button>
+    </div>
+    <div>
+      <img id="neomatter" src="images/neomatter1.png">
+      <img id="title-info" src="images/Title-info.png">
+      <img id="currentPlayers" src="images/CurrentPlayers.png">
+      <img id="coordinates" src="images/Coodinate.png">
+      <img id="poe" src="images/PointofEntry.png">
+      <!-- <img id="ring" src="images/ring.png"> -->
     </div>
     <canvas id="three-canvas" style="width: 100%; height: 100%"></canvas>
     <script type="text/javascript">
@@ -95,14 +103,27 @@
     // Pace.on('done', function(){ Pace.off(); });
     var scriptsList = [];
     function startGame(){
+    // document.getElementById("ring").style.display = "block";
       clicked("start");
       var el = document.getElementById("start");
-      removeFadeOut(el, 2000);
+      removeFadeOut(el, 3000);
+    }
+
+    function removeStart() {
+      var start = $('#start');
+      start.addClass('visuallyhidden');
+      start.one('transitioned', function(e){
+        start.addClass('hidden');
+      });
+      var el = document.getElementById("start");
+      setTimeout(function() {
+        el.parentNode.removeChild(el);
+      }, 3000);
     }
 
     function removeFadeOut(el, speed) {
       var seconds = speed/1000;
-      el.style.transition = "opacity" + seconds + "s ease";
+      el.style.transition = "opacity" + seconds + "s linear";
       el.style.opacity = 0;
       setTimeout(function() {
         el.parentNode.removeChild(el);

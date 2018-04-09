@@ -1,12 +1,101 @@
 #start {
-  background-color: rgba(0,0,0,0.5);
   display:none;
   position:absolute;
   z-index:10;
   height: 100%;
   width: 100%;
-  /*left:45%;
-  bottom:40%;*/
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+.start {
+  transition: all 2s linear;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+#title-info {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 15%;
+  left: 20%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#currentPlayers {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 20%;
+  right: 15%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#coordinates {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  bottom: 15%;
+  right: 25%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#poe {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  bottom: 18%;
+  left: 22%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#ring {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  margin: 0;
+  top: 20%;
+  left: 40%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#neomatter {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  left: 10px;
+  border: none;
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
