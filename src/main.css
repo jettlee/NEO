@@ -1,9 +1,13 @@
+body {
+  font-family: 'Orbitron';
+}
+
 #start {
   display:none;
   position:absolute;
   z-index:10;
-  height: 100%;
-  width: 100%;
+  left:35%;
+  top: 30%;
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
