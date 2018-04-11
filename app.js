@@ -5,7 +5,7 @@ var http = require('http');
 
 var app = express();
 var server = http.Server(app);
-var io = socketIO(server, {transports: ['websocket']});
+var io = socketIO(server);
 
 
 //app.set("view engine", "ejs");
@@ -27,6 +27,8 @@ server.listen(8080, function(){
 });
 
 var players = {};
+var vertex = [];
+var materials = [];
 
 // Add the WebSocket handlers
 io.on('connection', function(socket) {
@@ -35,14 +37,25 @@ io.on('connection', function(socket) {
             energy: 100,
             darkPower: 100
         };
+
+        planets = {
+            vertex: vertex,
+            materials: materials
+        };
+
+        // send existing planets to a new client
+        socket.emit('planets', planets);
         console.log("a new player connecting..., " + "player id: " + socket.id + ", current player number: " + Object.keys(players).length);
         console.log(players);
     });
 
     socket.on('add', function(data){
-        console.log(socket.id);
+        // store new generated planets information into server array
+        vertex.push(data.vertex);
+        materials.push(data.texturePath);
+
         players[socket.id].energy -= 10;
         console.log("player id: " + socket.id + " exploring..." + " consuming energy 10, and remaining energy: " + players[socket.id].energy + " darkPower: " + players[socket.id].darkPower);
-        io.sockets.emit('planet', data);
+        io.emit('planet', data);
     });
 });

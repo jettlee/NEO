@@ -1,7 +1,3 @@
-// create socket to communicate with server
-var interactionSocket = io();
-interactionSocket.emit('new player');
-
 var start = 0;
 function clicked(str){
   if(str=="start"){
@@ -216,7 +212,7 @@ Galaxy.InteractionHandler.prototype = {
                         vertex : [self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10],
                         texturePath : planetImgArray[planetIndex]
                     };
-                    interactionSocket.emit('add', planetData);
+                    socket.emit('add', planetData);
                 }, 500);
             });
         });
