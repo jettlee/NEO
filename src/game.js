@@ -1,7 +1,6 @@
 socket.emit('new player');
 
 socket.on('planets', function(planets){
-    console.log('css');
     if (planets.vertex.length != 0 && planets.materials.length != 0) {
         for (var i = 0; i < planets.vertex.length; i++) {
             var particleSystem = composePlanet(planets.materials[i], planets.vertex[i]);

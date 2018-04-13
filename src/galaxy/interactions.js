@@ -9,6 +9,11 @@ function clicked(str){
   } else return false;
 }
 
+var currentNeoroglancerURL = "";
+socket.on('neuroglancerUrl', function(url){
+    currentNeoroglancerURL = url;
+    console.log(url);
+});
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent');
@@ -150,8 +155,8 @@ Galaxy.InteractionHandler.prototype = {
             document.getElementById("coordinates").style.display = "none";
             document.getElementById("poe").style.display = "none";
             $('body').fadeOut(600, function(){
-                $('#iframe').height($(document).height());
-                $('#iframe').show();
+                $('#iframeDiv').height($(document).height());
+                $('#iframeDiv').show();
                 $('body').fadeIn(600, function(){});
             })
         } else {
@@ -179,8 +184,10 @@ Galaxy.InteractionHandler.prototype = {
         document.getElementById("coordinates").style.display = "block";
         document.getElementById("poe").style.display = "block";
         $('body').fadeOut(600, function(){
-            $('#iframe').height(0);
-            $('#iframe').hide();
+            console.log($('iframeDiv'));
+            console.log($('iframe'));
+            $('#iframeDiv').height(0);
+            $('#iframeDiv').hide();
             $('body').fadeIn(600, function(){
                 _.delay(function(){
                     var particles = new THREE.Geometry();
