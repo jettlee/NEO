@@ -1,4 +1,14 @@
-var socket = io();
+socket.emit('new player');
+
+socket.on('planets', function(planets){
+    if (planets.vertex.length != 0 && planets.materials.length != 0) {
+        for (var i = 0; i < planets.vertex.length; i++) {
+            var particleSystem = composePlanet(planets.materials[i], planets.vertex[i]);
+            Galaxy.TopScene.add(particleSystem);
+        }
+    }
+});
+
 
 socket.on('planet', function(data){
     //compose planet according to data from server
@@ -8,17 +18,17 @@ socket.on('planet', function(data){
     Galaxy.TopScene.add(particleSystem);
 });
 
-$('#three-canvas').on('click',this.canvasClickEvent);
-
-function canvasClickEvent(e){
-    var self = this;
-    e.preventDefault();
-    e.stopPropagation();
-
-    socket.on('planet', function(data) {
-        //console.log(data);
-    });
-};
+// $('#three-canvas').on('click',this.canvasClickEvent);
+//
+// function canvasClickEvent(e){
+//     var self = this;
+//     e.preventDefault();
+//     e.stopPropagation();
+//
+//     socket.on('planet', function(data) {
+//         //console.log(data);
+//     });
+// };
 
 function composePlanet(filePath, vertex) {
     var particles = new THREE.Geometry();
