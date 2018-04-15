@@ -15,8 +15,8 @@ function clicked(str){
 
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
-    _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent');
-    _.bindAll(this,'showInstructable', 'getTagManager','resetInteractionTimer');
+    _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent','iframeSubmitClickEvent1','transitionToNeuroglancer','inspectIframe');
+    _.bindAll(this,'showInstructable', 'getTagManager','resetInteractionTimer','backEvent');
 
     // need status right away, in case we need to report something:
     //this.__statusIndicator = new window.GalaxyStatusIndicator();
@@ -35,7 +35,11 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     var that = this;
     $('#three-canvas').on('click',this.canvasClickEvent);
     $('#iframeSubmitButton').on('click', this.iframeSubmitClickEvent);
-
+    $('#iframeSubmitButton1').on('click', this.iframeSubmitClickEvent1);
+    $('#planetMap').on('click',this.showInformation);
+    $('#inspectBtn').on('click',this.inspectIframe);
+    $('#createBtn').on('click',this.transitionToNeuroglancer);
+    $('#backBtn').on('click',this.backEvent);
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
     $(document).on('click','a',{context: that},this.clickAnchor);
 
@@ -84,6 +88,82 @@ Galaxy.InteractionHandler.prototype = {
         },90000)
     },
 
+    backEvent: function(e){
+      var self = this;
+      e.preventDefault();
+      e.stopPropagation();
+      // document.getElementById("neomatter").style.display = "block";
+      // document.getElementById("title-info").style.display = "block";
+      // document.getElementById("currentPlayers").style.display = "block";
+      // document.getElementById("coordinates").style.display = "block";
+      // document.getElementById("poe").style.display = "block";
+      $('body').fadeOut(600, function(){
+          $('#planetMap').height(0);
+          $('#planetMap').hide();
+          $('body').fadeIn(600, function(){
+              _.delay(function(){
+                  var particles = new THREE.Geometry();
+                  var randomNum = self.integerRandom();
+                  var vertex = new THREE.Vector3(self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10);
+                  particles.vertices.push(vertex);
+                  var planetImgArray  = ["./images/ang-transparent.png","./images/ash-transparent.png","./images/ero-transparent.png","./images/fire-transparent.png","./images/glee-transparent.png","./images/gold-transparent.png","./images/jade-transparent.png","./images/test3-transparent.png","./images/test5-transparent.png"];
+                  var planetIndex = Math.floor(Math.random() * Math.floor(planetImgArray.length));
+
+                  var pMaterial = new THREE.ParticleBasicMaterial({
+                      size: 100,
+                      map: THREE.ImageUtils.loadTexture(planetImgArray[planetIndex]),
+                      blending: THREE.AdditiveBlending,
+                      transparent: false,
+                      depthTest: false
+                  });
+                  // create the particle system
+                  var particleSystem = new THREE.ParticleSystem(
+                      particles,
+                      pMaterial);
+
+                  // add it to the scene
+                  this.__glowingParticleSystems = this.__glowingParticleSystems || [];
+                  this.__glowingParticleSystems.push(particleSystem);
+                  Galaxy.TopScene.add(particleSystem);
+
+                  // emit planet data to server
+                  var planetData = {
+                      vertex : [self.currentTagPos.x - 50, self.currentTagPos.y + 50, self.currentTagPos.z - 10],
+                      texturePath : planetImgArray[planetIndex]
+                  };
+                  interactionSocket.emit('add', planetData);
+              }, 500);
+          });
+      });
+    },
+
+    showInformation: function(){
+      document.getElementById("title-info").style.display = "block";
+      document.getElementById("currentPlayers").style.display = "block";
+      document.getElementById("coordinates").style.display = "block";
+      document.getElementById("poe").style.display = "block";
+      document.getElementById("inspectBtn").style.display = "block";
+      document.getElementById("createBtn").style.display = "block";
+    },
+
+    transitionToNeuroglancer: function(e) {
+      $('body').fadeOut(600, function(){
+          document.getElementById("planetMap").style.display = "none";
+          $('#iframe').height($(document).height());
+          $('#iframe').show();
+          $('body').fadeIn(600, function(){});
+      })
+    },
+
+    inspectIframe: function() {
+      document.getElementById("neomatter").style.display = "none";
+      $('body').fadeOut(600, function(){
+        document.getElementById("planetMap").style.display = "none";
+        $('#iframeToInspect').height($(document).height());
+        $('#iframeToInspect').show();
+        $('body').fadeIn(600, function(){});
+      })
+    },
 
     // Detect canvas click event and zoom in to a particle.
     // In GDC demo prototype, we prohibit the functionality of selecting a random vertex
@@ -148,16 +228,20 @@ Galaxy.InteractionHandler.prototype = {
         // if the click area is around earth mesh and in a zoom-in mode,
         // then go to neuroglancer; otherwise, reset
         if (self.tagClickItem !== null && clickRange.locationX >= 0.4 && clickRange.locationX <= 0.6 && clickRange.locationY >= 0.37 && clickRange.locationY <= 0.63) {
-            document.getElementById("neomatter").style.display = "none";
-            document.getElementById("title-info").style.display = "none";
-            document.getElementById("currentPlayers").style.display = "none";
-            document.getElementById("coordinates").style.display = "none";
-            document.getElementById("poe").style.display = "none";
+            // document.getElementById("neomatter").style.display = "none";
+            // document.getElementById("title-info").style.display = "none";
+            // document.getElementById("currentPlayers").style.display = "none";
+            // document.getElementById("coordinates").style.display = "none";
+            // document.getElementById("poe").style.display = "none";
             $('body').fadeOut(600, function(){
-                $('#iframe').height($(document).height());
-                $('#iframe').show();
-                $('body').fadeIn(600, function(){});
+              document.getElementById("planetMap").style.display = "block";
+              $('body').fadeIn(600, function(){});
             })
+            // $('body').fadeOut(600, function(){
+            //     $('#iframe').height($(document).height());
+            //     $('#iframe').show();
+            //     $('body').fadeIn(600, function(){});
+            // })
         } else {
             this.reset({projectTagsAddAfterCameraReset: true});
         }
@@ -173,15 +257,25 @@ Galaxy.InteractionHandler.prototype = {
         // }
     },
 
+    iframeSubmitClickEvent1: function(e){
+      $('body').fadeOut(600, function(){
+        $('#iframeToInspect').height(0);
+        $('#iframeToInspect').hide();
+        document.getElementById("neomatter").style.display = "block";
+        document.getElementById("planetMap").style.display = "block";
+        $('body').fadeIn(600, function(){});
+      })
+    },
+
     iframeSubmitClickEvent: function(e){
         var self = this;
         e.preventDefault();
         e.stopPropagation();
-        document.getElementById("neomatter").style.display = "block";
-        document.getElementById("title-info").style.display = "block";
-        document.getElementById("currentPlayers").style.display = "block";
-        document.getElementById("coordinates").style.display = "block";
-        document.getElementById("poe").style.display = "block";
+        // document.getElementById("neomatter").style.display = "block";
+        // document.getElementById("title-info").style.display = "block";
+        // document.getElementById("currentPlayers").style.display = "block";
+        // document.getElementById("coordinates").style.display = "block";
+        // document.getElementById("poe").style.display = "block";
         $('body').fadeOut(600, function(){
             $('#iframe').height(0);
             $('#iframe').hide();

@@ -106,6 +106,32 @@ body {
   -o-animation: fadein 4s; /* Opera */
 }
 
+#inspectBtn {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 40%;
+  left: 20%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+#createBtn {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 40%;
+  right: 20%;
+  border: none;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
 #mute, #unmute {
   display:none;
   position:absolute;
@@ -115,6 +141,69 @@ body {
   zoom:70%;
   background:rgba(0,0,0,0.01);
   border:none
+}
+
+#icon1 {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  left: 10%;
+  top: 30%;
+  zoom: 20%;
+}
+
+#icon2 {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 10%;
+  zoom: 20%;
+}
+
+#icon3 {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  top: 70%;
+  left: 10%;
+  zoom: 20%;
+}
+
+#div1 {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    height: 70px;
+    padding: 10px;
+    top: 80%;
+    right: 40%;
+    border: 1px solid #aaaaaa;
+}
+
+#div2 {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    height: 70px;
+    padding: 10px;
+    top: 40%;
+    right: 25%;
+    border: 1px solid #aaaaaa;
+}
+
+#div3 {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    height: 70px;
+    padding: 10px;
+    top: 35%;
+    right: 35%;
+    border: 1px solid #aaaaaa;
 }
 
 #full-screen, #exit-full-screen {
@@ -159,4 +248,30 @@ body {
     to {
         opacity: 1;
     }
+}
+
+#mapbg {
+  margin-left: 15%;
+  margin-top: 8%;
+  zoom: 40%;
+}
+
+#planetMap {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+}
+
+#backBtn {
+  display: block;
+  position: absolute;
+  zoom: 50%;
+  top: 80%;
+  left: 5%;
 }
