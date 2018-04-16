@@ -5,7 +5,7 @@ var http = require('http');
 
 var app = express();
 var server = http.Server(app);
-var io = socketIO(server);
+var io = socketIO(server, {transports: ['websocket']});
 
 
 //app.set("view engine", "ejs");
