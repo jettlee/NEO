@@ -1,5 +1,7 @@
 body {
   font-family: 'Orbitron';
+  margin: 0;
+  padding: 0;
 }
 
 #start {
@@ -272,6 +274,46 @@ body {
   display: block;
   position: absolute;
   zoom: 50%;
-  top: 80%;
-  left: 5%;
+  bottom: 10px;
+  left: 1;
+}
+
+#apoint {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  zoom: 50%;
+}
+
+#bpoint {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  zoom: 50%;
+}
+
+#cpoint {
+  display: none;
+  position: absolute;
+  top: 70%;
+  left: 45%;
+  zoom: 50%;
+}
+
+#dpoint {
+  display: none;
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  zoom: 50%;
+}
+
+#epoint {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 58%;
+  zoom: 50%;
 }
