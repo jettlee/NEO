@@ -9,11 +9,10 @@ function clicked(str){
   } else return false;
 }
 
-var currentNeoroglancerURL = "";
-socket.on('neuroglancerUrl', function(url){
-    currentNeoroglancerURL = url;
-    console.log(url);
-});
+// var currentNeoroglancerURL = "";
+// socket.on('neuroglancerUrl', function(url){
+//     currentNeoroglancerURL = url;
+// });
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent','iframeSubmitClickEvent1','transitionToNeuroglancer','inspectIframe');

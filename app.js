@@ -36,8 +36,7 @@ var currentNeoroglancerURL = defaultNeuroglancerURL;
 io.on('connection', function(socket) {
     socket.on('new player', function(){
         players[socket.id] = {
-            energy: 100,
-            darkPower: 100
+            neomatter: 30                             
         };
 
         planets = {
