@@ -23,7 +23,8 @@ Galaxy.ProjectTagManager = function(particleSystemsArray,camera,settings,data){
     this.projectData = data;
     this.$container = $('body');
 
-    this.planetsArray = ["./images/ang-transparent.png","./images/ash-transparent.png","./images/ero-transparent.png","./images/fire-transparent.png","./images/glee-transparent.png","./images/gold-transparent.png","./images/jade-transparent.png","./images/test3-transparent.png","./images/test5-transparent.png"];
+    // this.planetsArray = ["./images/ang-transparent.png","./images/ash-transparent.png","./images/ero-transparent.png","./images/fire-transparent.png","./images/glee-transparent.png","./images/gold-transparent.png","./images/jade-transparent.png","./images/test3-transparent.png","./images/test5-transparent.png"];
+    this.planetsArray = ["./images/wormhole1.jpg","./images/wormhole2.jpg","./images/wormhole3.jpg","./images/wormhole4.jpg"];
     this.countForPlanets = 0;
     this.addPickRandomMixin();
 
