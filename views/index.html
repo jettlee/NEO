@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>NEO</title>
     <script type="text/javascript" src="src/head.load.min.js"></script>
+    <script type="text/javascript" src="src/loading-bar.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="src/galaxy_styles.css">
+    <link rel="stylesheet" type="text/css" href="src/loading-bar.css">
     <link rel="icon" type="image/png" href="images/logo-2.png">
     <link rel="stylesheet" type="text/css" href="src/main.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900' rel='stylesheet'>
@@ -58,6 +60,11 @@
 
   </head>
   <body>
+    <div id="myBar" class="ldBar" data-preset="energy" data-value="0"></div>
+    <script>
+        var myBar = new ldBar("#mybar");
+        myBar.set(20);
+    </script>
     <div id="iframeDiv" style="display: none;position:relative">
         <div id="toolbar" class="uiContainer">
             <a href="#" id="iframeSubmitButton" class="toolbarButton">Submit</a>
