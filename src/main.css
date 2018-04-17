@@ -317,3 +317,43 @@ body {
   left: 58%;
   zoom: 50%;
 }
+
+#uppershipconsole {
+    margin-left: 50%;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    border: none;
+    animation-duration: 4s;
+    animation-name: slidedown;
+}
+
+#lowershipconsole {
+    margin-left: 50%;
+    position: absolute;
+    bottom:10px;
+    z-index: 10;
+    border: none;
+    animation-duration: 4s;
+    animation-name: slideup;
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: -50%;
+  }
+
+  to {
+    margin-top: 0;
+  }
+}
+
+@keyframes slideup {
+  from {
+    margin-bottom: -50%;
+  }
+
+  to {
+    margin-bottom: 0;
+  }
+}

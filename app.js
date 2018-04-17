@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
 });
 
 
-server.listen(3000, function(){
+server.listen(8080, function(){
     console.log("server running on port 8080...");
 });
 
@@ -36,7 +36,7 @@ var currentNeoroglancerURL = defaultNeuroglancerURL;
 io.on('connection', function(socket) {
     socket.on('new player', function(){
         players[socket.id] = {
-            neomatter: 30                             
+            neomatter: 30
         };
 
         planets = {
@@ -59,9 +59,10 @@ io.on('connection', function(socket) {
         console.log("player id: " + socket.id + " exploring..." + " consuming energy 10, and remaining energy: " + players[socket.id].energy + " darkPower: " + players[socket.id].darkPower);
         io.emit('planet', data);
     });
-});
 
-// Keep updating clients' neuroglancer squareUrl
-setInterval(function(){
-    io.emit('neuroglancerUrl', currentNeoroglancerURL);
-}, 1000);
+    socket.on('changeNeomatter', function(points) {
+        players[socket.id].neomatter += points;
+        socket.emit('neomatter', players[socket.id].neomatter);
+        console.log(players);
+    });
+});
