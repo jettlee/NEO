@@ -34,25 +34,27 @@ body {
   position: absolute;
   z-index: 10;
   top: 15%;
-  left: 20%;
+  left: 25%;
+  height: 25%;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #currentPlayers {
   display: none;
   position: absolute;
   z-index: 10;
-  top: 20%;
-  right: 15%;
+  top: 25%;
+  right: 20%;
+  height: 10%;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #coordinates {
@@ -60,12 +62,13 @@ body {
   position: absolute;
   z-index: 10;
   bottom: 15%;
-  right: 25%;
+  right: 30%;
+  height: 12%;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #poe {
@@ -74,25 +77,12 @@ body {
   z-index: 10;
   bottom: 18%;
   left: 22%;
+  height: 8%;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
-}
-
-#ring {
-  display: none;
-  position: absolute;
-  z-index: 10;
-  margin: 0;
-  top: 20%;
-  left: 40%;
-  border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #neomatter {
@@ -102,36 +92,42 @@ body {
   top: 10px;
   left: 10px;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #inspectBtn {
   display: none;
   position: absolute;
   z-index: 10;
-  top: 40%;
-  left: 20%;
+  font-size: 20px;
+  top: 45%;
+  left: 15%;
+  height: 8%;
+  width: 12%;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #createBtn {
   display: none;
   position: absolute;
   z-index: 10;
-  top: 40%;
-  right: 20%;
+  font-size: 20px;
+  top: 45%;
+  right: 15%;
+  height: 8%;
+  width: 12%;
   border: none;
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 #mute, #unmute {
@@ -149,7 +145,7 @@ body {
   display: block;
   position: absolute;
   z-index: 10;
-  left: 10%;
+  left: 5%;
   top: 30%;
   zoom: 20%;
 }
@@ -159,7 +155,7 @@ body {
   position: absolute;
   z-index: 10;
   top: 50%;
-  left: 10%;
+  left: 5%;
   zoom: 20%;
 }
 
@@ -168,7 +164,7 @@ body {
   position: absolute;
   z-index: 10;
   top: 70%;
-  left: 10%;
+  left: 5%;
   zoom: 20%;
 }
 
@@ -176,11 +172,11 @@ body {
     display: block;
     position: absolute;
     z-index: 10;
-    width: 50px;
-    height: 70px;
+    width: 10%;
+    height: 15%;;
     padding: 10px;
     top: 80%;
-    right: 40%;
+    right: 35%;
     border: 1px solid #aaaaaa;
 }
 
@@ -188,11 +184,11 @@ body {
     display: block;
     position: absolute;
     z-index: 10;
-    width: 50px;
-    height: 70px;
+    width: 10%;
+    height: 15%;
     padding: 10px;
     top: 40%;
-    right: 25%;
+    right: 15%;
     border: 1px solid #aaaaaa;
 }
 
@@ -200,8 +196,8 @@ body {
     display: block;
     position: absolute;
     z-index: 10;
-    width: 50px;
-    height: 70px;
+    width: 10%;
+    height: 15%;
     padding: 10px;
     top: 35%;
     right: 35%;
@@ -253,9 +249,11 @@ body {
 }
 
 #mapbg {
+  margin: 0 auto;
+  width: 70%;
+  height: 70%;
+  margin-top: 10%;
   margin-left: 15%;
-  margin-top: 8%;
-  zoom: 40%;
 }
 
 #planetMap {
@@ -275,7 +273,7 @@ body {
   position: absolute;
   zoom: 50%;
   bottom: 10px;
-  left: 1;
+  left: 10px;
 }
 
 #apoint {
@@ -286,12 +284,36 @@ body {
   zoom: 50%;
 }
 
+#apoint:hover ~ #ainfo {
+  display: block;
+}
+
+#ainfo {
+  display: none;
+  position: absolute;
+  height: 20%;
+  top: 25%;
+  left: 54%;
+}
+
 #bpoint {
   display: none;
   position: absolute;
   top: 40%;
   left: 40%;
   zoom: 50%;
+}
+
+#bpoint:hover ~ #binfo {
+  display: block;
+}
+
+#binfo {
+  display: none;
+  position: absolute;
+  height: 20%;
+  top: 40%;
+  left: 44%;
 }
 
 #cpoint {
@@ -302,12 +324,36 @@ body {
   zoom: 50%;
 }
 
+#cpoint:hover ~ #cinfo {
+  display: block;
+}
+
+#cinfo {
+  display: none;
+  position: absolute;
+  height: 20%;
+  top: 70%;
+  left: 49%;
+}
+
 #dpoint {
   display: none;
   position: absolute;
   top: 60%;
   left: 60%;
   zoom: 50%;
+}
+
+#dpoint:hover ~ #dinfo {
+  display: block;
+}
+
+#dinfo {
+  display: none;
+  position: absolute;
+  height: 20%;
+  top: 60%;
+  left: 64%;
 }
 
 #epoint {
@@ -318,6 +364,7 @@ body {
   zoom: 50%;
 }
 
+<<<<<<< HEAD
 #uppershipconsole {
     margin-left: 50%;
     position: absolute;
@@ -356,4 +403,16 @@ body {
   to {
     margin-bottom: 0;
   }
+=======
+#epoint:hover ~ #einfo {
+  display: block;
+}
+
+#einfo {
+  display: none;
+  position: absolute;
+  height: 20%;
+  top: 40%;
+  left: 62%;
+>>>>>>> 0cf769a212f40b0054fc2091563e92f272bdbeda
 }
