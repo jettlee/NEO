@@ -60,11 +60,8 @@
 
   </head>
   <body>
-    <div id="myBar" class="ldBar" data-preset="energy" data-value="0"></div>
-    <script>
-        var myBar = new ldBar("#mybar");
-        myBar.set(20);
-    </script>
+    <div id="myBar"></div>
+    <script type="text/javascript" src="src/jquery-1.11.0-beta3.js"></script>
     <div id="iframeDiv" style="display: none;position:relative">
         <div id="toolbar" class="uiContainer">
             <a href="#" id="iframeSubmitButton" class="toolbarButton">Submit</a>
@@ -138,6 +135,7 @@
       document.getElementById("start").style.display = "block";
     });
 
+
     Pace.on('done', function(){ Pace.off(); });
     var scriptsList = [];
     function startGame(){
@@ -146,6 +144,13 @@
       clicked("start");
       var el = document.getElementById("start");
       removeFadeOut(el, 3000);
+
+      var myBar = new ldBar("#myBar");
+      myBar.set(30);
+      $('#three-canvas').on('click', function(){
+          console.log('click');
+          myBar.set(50);
+      });
     }
 
     function allowDrop(ev) {

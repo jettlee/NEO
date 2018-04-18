@@ -139,7 +139,9 @@ Galaxy.InteractionHandler.prototype = {
       // })
     },
 
-    transitionToNGToInspect: function() {
+    transitionToNGToInspect: function(e) {
+      var tagId = '#' + e.target.id;
+      $(tagId).hide();
       document.getElementById("neomatter").style.display = "none";
       $('body').fadeOut(600, function(){
         document.getElementById("planetMap").style.display = "none";
