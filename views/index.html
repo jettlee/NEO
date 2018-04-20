@@ -57,11 +57,10 @@
         </div>
     </script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="progressbar.js"></script>
 
   </head>
   <body>
-    <div id="myBar"></div>
-    <script type="text/javascript" src="src/jquery-1.11.0-beta3.js"></script>
     <div id="iframeDiv" style="display: none;position:relative">
         <div id="toolbar" class="uiContainer">
             <a href="#" id="iframeSubmitButton" class="toolbarButton">Submit</a>
@@ -111,12 +110,11 @@
       <img id="einfo" src="images/map_check_info.png">
       <img id="backBtn" src="images/back_button.png">
     </div>
-    <div>
-      <img id="neomatter" src="images/neomatter1.png">
-    </div>
+    <!-- <div class="transparentBackgroung"><p style="font-family: 'Orbitron'; color: #96bfb2"><i>NEOMATTER</i></p></div> -->
+    <div id="myBar" class="transparentBackgroung"></div>
 
-    <div><img id="uppershipconsole" src="images/neomatter1.png"></div>
-    <div><img id="lowershipconsole" src="images/neomatter1.png"></div>
+    <!-- <div><img id="uppershipconsole" src="images/neomatter1.png"></div>
+    <div><img id="lowershipconsole" src="images/neomatter1.png"></div> -->
     <canvas id="three-canvas" style="width: 100%; height: 100%"></canvas>
     <script type="text/javascript">
 
@@ -138,20 +136,51 @@
 
     Pace.on('done', function(){ Pace.off(); });
     var scriptsList = [];
+    var bar;
     function startGame(){
-      document.getElementById("neomatter").style.display = "block";
-    // document.getElementById("ring").style.display = "block";
+      //document.getElementById("neomatter").style.display = "block";
+      // document.getElementById("ring").style.display = "block";
       clicked("start");
       var el = document.getElementById("start");
       removeFadeOut(el, 3000);
 
-      var myBar = new ldBar("#myBar");
-      myBar.set(30);
-      $('#three-canvas').on('click', function(){
-          console.log('click');
-          myBar.set(50);
-      });
-    }
+      // instantiate progressbar
+      if (bar === undefined) {
+          bar = new ProgressBar.Line(myBar, {
+              strokeWidth: 7,
+              easing: 'easeInOut',
+              duration: 1400,
+              color: '#f26522',
+              trailColor: 'rgba(255, 255, 255, .1)',
+              trailWidth: 6,
+              svgStyle: {width: '100%', height: '100%'},
+              text: {
+                  style: {
+                      // Text color.
+                      // Default: same as stroke color (options.color)
+                      color: '#96bfb2',
+                      position: 'absolute',
+                      right: '0%',
+                      top: '15%',
+                      padding: '10px',
+                      margin: '15px',
+                      transform: null,
+                      fontSize: '18px',
+                      fontFamily: 'Orbitron'
+                  },
+                  autoStyleContainer: false
+              },
+              from: {color: '#f26522'},
+              to: {color: '#96bfb2'},
+              step: (state, bar) => {
+                  bar.path.setAttribute('stroke', state.color);
+                  bar.setText('NEOMATTER  ' + '30 / 200');
+              },
+          });
+      }
+
+      bar.animate(30/200);
+  }
 
     function allowDrop(ev) {
       ev.preventDefault();

@@ -114,7 +114,7 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     transitionToNeuroglancer: function(e) {
-      document.getElementById("neomatter").style.display = "none";
+      // document.getElementById("neomatter").style.display = "none";
       $('body').fadeOut(600, function(){
           document.getElementById("planetMap").style.display = "none";
           $('#iframeDiv').height($(document).height());
@@ -142,7 +142,7 @@ Galaxy.InteractionHandler.prototype = {
     transitionToNGToInspect: function(e) {
       var tagId = '#' + e.target.id;
       $(tagId).hide();
-      document.getElementById("neomatter").style.display = "none";
+      // document.getElementById("neomatter").style.display = "none";
       $('body').fadeOut(600, function(){
         document.getElementById("planetMap").style.display = "none";
         $('#iframeToInspect').height($(document).height());
@@ -253,7 +253,7 @@ Galaxy.InteractionHandler.prototype = {
       $('body').fadeOut(600, function(){
         $('#iframeToInspect').height(0);
         $('#iframeToInspect').hide();
-        document.getElementById("neomatter").style.display = "block";
+        // document.getElementById("neomatter").style.display = "block";
         document.getElementById("planetMap").style.display = "block";
         $('body').fadeIn(600, function(){});
       })
@@ -263,7 +263,7 @@ Galaxy.InteractionHandler.prototype = {
       $('body').fadeOut(600, function(){
         $('#iframeDiv').height(0);
         $('#iframeDiv').hide();
-        document.getElementById("neomatter").style.display = "block";
+        // document.getElementById("neomatter").style.display = "block";
         document.getElementById("planetMap").style.display = "block";
         $('body').fadeIn(600, function(){});
       })

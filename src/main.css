@@ -364,7 +364,6 @@ body {
   zoom: 50%;
 }
 
-<<<<<<< HEAD
 #uppershipconsole {
     margin-left: 50%;
     position: absolute;
@@ -403,7 +402,12 @@ body {
   to {
     margin-bottom: 0;
   }
-=======
+}
+
+.transparentBackgroung {
+    border: none;
+    position: absolute;
+}
 #epoint:hover ~ #einfo {
   display: block;
 }
@@ -414,5 +418,4 @@ body {
   height: 20%;
   top: 40%;
   left: 62%;
->>>>>>> 0cf769a212f40b0054fc2091563e92f272bdbeda
 }
