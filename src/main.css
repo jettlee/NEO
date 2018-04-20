@@ -425,3 +425,7 @@ body {
   top: 40%;
   left: 62%;
 }
+
+.red {
+    background-color: red;
+}
