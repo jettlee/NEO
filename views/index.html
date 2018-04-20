@@ -110,7 +110,7 @@
       <img id="einfo" src="images/map_check_info.png">
       <img id="backBtn" src="images/back_button.png">
     </div>
-    <!-- <div class="transparentBackgroung"><p style="font-family: 'Orbitron'; color: #96bfb2"><i>NEOMATTER</i></p></div> -->
+    <div style="position:absolute; float: left"><h2>NEOMATTER</h2></div>
     <div id="myBar" class="transparentBackgroung"></div>
 
     <!-- <div><img id="uppershipconsole" src="images/neomatter1.png"></div>
@@ -137,6 +137,7 @@
     Pace.on('done', function(){ Pace.off(); });
     var scriptsList = [];
     var bar;
+    var maxNeomatterValue = 200;
     function startGame(){
       //document.getElementById("neomatter").style.display = "block";
       // document.getElementById("ring").style.display = "block";
@@ -174,7 +175,7 @@
               to: {color: '#96bfb2'},
               step: (state, bar) => {
                   bar.path.setAttribute('stroke', state.color);
-                  bar.setText('NEOMATTER  ' + '30 / 200');
+                  bar.setText('NEOMATTER  ' + '30 / ' + maxNeomatterValue);
               },
           });
       }
@@ -194,7 +195,7 @@
       ev.preventDefault();
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
-      socket.emit("changeNeomatter", 5);
+      socket.emit("changeNeomatter", 50);
     }
 
     function removeStart() {

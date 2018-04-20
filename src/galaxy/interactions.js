@@ -12,10 +12,11 @@ function clicked(str){
   } else return false;
 }
 
-// var currentNeoroglancerURL = "";
-// socket.on('neuroglancerUrl', function(url){
-//     currentNeoroglancerURL = url;
-// });
+var neomatterValue;
+socket.on('neomatter', function(value){
+    neomatterValue = value;
+});
+
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent','iframeSubmitClickEvent1','transitionToNeuroglancer','inspectIframe');
@@ -249,23 +250,33 @@ Galaxy.InteractionHandler.prototype = {
         // }
     },
 
+    updateProgressBar: function(){
+        bar.animate(neomatterValue / maxNeomatterValue);
+    },
+
     iframeSubmitClickEvent1: function(e){
-      $('body').fadeOut(600, function(){
+        var self = this;
+        $('body').fadeOut(600, function(){
         $('#iframeToInspect').height(0);
         $('#iframeToInspect').hide();
         // document.getElementById("neomatter").style.display = "block";
         document.getElementById("planetMap").style.display = "block";
-        $('body').fadeIn(600, function(){});
+        $('body').fadeIn(600, function(){
+            self.updateProgressBar();
+        });
       })
     },
 
     iframeSubmitClickEvent: function(e){
+        var self = this;
       $('body').fadeOut(600, function(){
         $('#iframeDiv').height(0);
         $('#iframeDiv').hide();
         // document.getElementById("neomatter").style.display = "block";
         document.getElementById("planetMap").style.display = "block";
-        $('body').fadeIn(600, function(){});
+        $('body').fadeIn(600, function(){
+            self.updateProgressBar();
+        });
       })
         // var self = this;
         // e.preventDefault();
