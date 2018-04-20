@@ -142,12 +142,14 @@ Galaxy.InteractionHandler.prototype = {
 
     transitionToNGToInspect: function(e) {
       var tagId = '#' + e.target.id;
-      $(tagId).hide();
       // document.getElementById("neomatter").style.display = "none";
       $('body').fadeOut(600, function(){
         document.getElementById("planetMap").style.display = "none";
         $('#iframeToInspect').height($(document).height());
         $('#iframeToInspect').show();
+        $('#uppershipconsole').hide();
+        $('#lowershipconsole').hide();
+        $(tagId).hide();
         $('body').fadeIn(600, function(){});
       })
     },
@@ -263,6 +265,8 @@ Galaxy.InteractionHandler.prototype = {
         document.getElementById("planetMap").style.display = "block";
         $('body').fadeIn(600, function(){
             self.updateProgressBar();
+            $('#uppershipconsole').show();
+            $('#lowershipconsole').show();
         });
       })
     },

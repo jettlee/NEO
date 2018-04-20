@@ -365,19 +365,25 @@ body {
 }
 
 #uppershipconsole {
-    margin-left: 50%;
+    display: none;
+    width: 50%;
+    max-height: 15%;
+    margin-left: 25%;
     position: absolute;
     z-index: 10;
-    top: 10px;
+    top: 0px;
     border: none;
     animation-duration: 4s;
     animation-name: slidedown;
 }
 
 #lowershipconsole {
-    margin-left: 50%;
+    display: none;
+    width: 50%;
+    max-height: 20%;
+    margin-left: 25%;
     position: absolute;
-    bottom:10px;
+    bottom: 0px;
     z-index: 10;
     border: none;
     animation-duration: 4s;

@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <title>NEO</title>
     <script type="text/javascript" src="src/head.load.min.js"></script>
-    <script type="text/javascript" src="src/loading-bar.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="src/galaxy_styles.css">
-    <link rel="stylesheet" type="text/css" href="src/loading-bar.css">
     <link rel="icon" type="image/png" href="images/logo-2.png">
     <link rel="stylesheet" type="text/css" href="src/main.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900' rel='stylesheet'>
@@ -110,11 +108,9 @@
       <img id="einfo" src="images/map_check_info.png">
       <img id="backBtn" src="images/back_button.png">
     </div>
-    <div style="position:absolute; float: left"><h2>NEOMATTER</h2></div>
-    <div id="myBar" class="transparentBackgroung"></div>
-
-    <!-- <div><img id="uppershipconsole" src="images/neomatter1.png"></div>
-    <div><img id="lowershipconsole" src="images/neomatter1.png"></div> -->
+    <div id="myBar" class="transparentBackgroung" style="margin:2%"></div>
+    <div><img id="uppershipconsole" src="images/Upper-cockpit.png"></div>
+    <div><img id="lowershipconsole" src="images/Lower-Cockpit.png"></div>
     <canvas id="three-canvas" style="width: 100%; height: 100%"></canvas>
     <script type="text/javascript">
 
@@ -139,11 +135,12 @@
     var bar;
     var maxNeomatterValue = 200;
     function startGame(){
-      //document.getElementById("neomatter").style.display = "block";
-      // document.getElementById("ring").style.display = "block";
       clicked("start");
       var el = document.getElementById("start");
       removeFadeOut(el, 3000);
+
+      $('#uppershipconsole').show();
+      $('#lowershipconsole').show();
 
       // instantiate progressbar
       if (bar === undefined) {
@@ -161,7 +158,7 @@
                       // Default: same as stroke color (options.color)
                       color: '#96bfb2',
                       position: 'absolute',
-                      right: '0%',
+                      right: '45%',
                       top: '15%',
                       padding: '10px',
                       margin: '15px',
@@ -175,7 +172,7 @@
               to: {color: '#96bfb2'},
               step: (state, bar) => {
                   bar.path.setAttribute('stroke', state.color);
-                  bar.setText('NEOMATTER  ' + '30 / ' + maxNeomatterValue);
+                  bar.setText('NEOMATTER  ' + Math.round(bar.value() * 100 * 2)+ ' / ' + maxNeomatterValue);
               },
           });
       }
@@ -288,10 +285,6 @@
     scriptsList.push("src/backbone-min.js");
     scriptsList.push("src/bootstrap/js/bootstrap.min.js");
     scriptsList.push("src/jquery.cycle2.min.js");
-
-    //scriptsList.push("src/galaxy/planets/lensflare.js");
-    //scriptsList.push("src/galaxy/planets/sun.js");
-    //scriptsList.push("src/galaxy/planets/testSun.js");
 
     scriptsList.push("src/galaxy/settings.js");
     scriptsList.push("src/galaxy/utils.js");
