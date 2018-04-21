@@ -61,7 +61,7 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 15%;
+  bottom: 17%;
   right: 30%;
   height: 12%;
   border: none;
@@ -75,7 +75,7 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 18%;
+  bottom: 21%;
   left: 22%;
   height: 8%;
   border: none;
@@ -382,7 +382,7 @@ body {
     z-index: 10;
     top: 0px;
     border: none;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-name: slidedown;
 }
 
@@ -395,7 +395,7 @@ body {
     bottom: 0px;
     z-index: 10;
     border: none;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-name: slideup;
 }
 

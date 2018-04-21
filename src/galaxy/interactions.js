@@ -201,6 +201,8 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     inspectIframe: function() {
+      $('#inspectBtn').fadeOut(300, function(){});
+      $('#createBtn').fadeOut(300, function(){});
       document.getElementById("apoint").style.display = "block";
       document.getElementById("bpoint").style.display = "block";
       document.getElementById("cpoint").style.display = "block";
@@ -221,7 +223,9 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     createIframe: function() {
-      if (currentNeomatterValue >= 50) {
+      if (currentNeomatterValue >= 10) {
+        $('#inspectBtn').fadeOut(300, function(){});
+        $('#createBtn').fadeOut(300, function(){});
         document.getElementById("acreate").style.display = "block";
         document.getElementById("bcreate").style.display = "block";
         document.getElementById("ccreate").style.display = "block";
@@ -353,6 +357,16 @@ Galaxy.InteractionHandler.prototype = {
         $('body').fadeOut(600, function(){
         $('#iframeToInspect').height(0);
         $('#iframeToInspect').hide();
+        $('#apoint').hide();
+        $('#bpoint').hide();
+        $('#cpoint').hide();
+        $('#dpoint').hide();
+        $('#epoint').hide();
+        $('#acreate').hide();
+        $('#bcreate').hide();
+        $('#ccreate').hide();
+        $('#dcreate').hide();
+        $('#ecreate').hide();
         document.getElementById("planetMap").style.display = "block";
         var el1 = document.getElementById("div1");
         var el2 = document.getElementById("div2");
@@ -394,6 +408,16 @@ Galaxy.InteractionHandler.prototype = {
         var el1 = document.getElementById("div4");
         var d1 = document.getElementById("i4");
         var ic1 = document.getElementById("icon4");
+        $('#apoint').hide();
+        $('#bpoint').hide();
+        $('#cpoint').hide();
+        $('#dpoint').hide();
+        $('#epoint').hide();
+        $('#acreate').hide();
+        $('#bcreate').hide();
+        $('#ccreate').hide();
+        $('#dcreate').hide();
+        $('#ecreate').hide();
       $('body').fadeOut(600, function(){
         while(el1.firstChild){
           el1.removeChild(el1.firstChild);
