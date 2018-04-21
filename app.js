@@ -6,8 +6,8 @@ var ProgressBar = require('progressbar.js');
 
 var app = express();
 var server = http.Server(app);
-//var io = socketIO(server, {transports: ['websocket']});
-var io = socketIO(server);
+var io = socketIO(server, {transports: ['websocket']});
+// var io = socketIO(server);
 
 
 //app.set("view engine", "ejs");
