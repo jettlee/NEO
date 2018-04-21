@@ -23,10 +23,10 @@ Galaxy.CameraMotions.prototype = {
     zoomAndDollyToPoint: function(point,callback){
         console.log("camera zoom in");
         // document.getElementById("neomatter").style.display = "block";
-        // document.getElementById("title-info").style.display = "block";
-        // document.getElementById("currentPlayers").style.display = "block";
-        // document.getElementById("coordinates").style.display = "block";
-        // document.getElementById("poe").style.display = "block";
+        document.getElementById("title-info").style.display = "block";
+        document.getElementById("currentPlayers").style.display = "block";
+        document.getElementById("coordinates").style.display = "block";
+        document.getElementById("poe").style.display = "block";
         zoom_audio.play();
         zoomed_in = true;
         if (this.isAnimating === true) return;
@@ -111,10 +111,10 @@ Galaxy.CameraMotions.prototype = {
           zoom_audio.play();
           zoomed_in = false;
           // document.getElementById("neomatter").style.display = "none";
-          // document.getElementById("title-info").style.display = "none";
-          // document.getElementById("currentPlayers").style.display = "none";
-          // document.getElementById("coordinates").style.display = "none";
-          // document.getElementById("poe").style.display = "none";
+          document.getElementById("title-info").style.display = "none";
+          document.getElementById("currentPlayers").style.display = "none";
+          document.getElementById("coordinates").style.display = "none";
+          document.getElementById("poe").style.display = "none";
         }
         var duration = 5,
             that = this,

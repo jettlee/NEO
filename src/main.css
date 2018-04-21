@@ -410,6 +410,21 @@ body {
   }
 }
 
+#msty {
+  display: none;
+  position: absolute;
+  max-width: 30%;
+  bottom: 20px;
+  left: 0;
+  animation-duration: 6s;
+  animation-name: slideup;
+}
+
+#mstyDialogue{
+  width: 60%;
+  margin-left: 20%;
+}
+
 .transparentBackgroung {
     border: none;
     position: absolute;
