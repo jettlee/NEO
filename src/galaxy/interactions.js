@@ -60,7 +60,12 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     $('#cpoint').on('click',this.transitionToNGToInspect);
     $('#dpoint').on('click',this.transitionToNGToInspect);
     $('#epoint').on('click',this.transitionToNGToInspect);
-    $('#createBtn').on('click',this.transitionToNeuroglancer);
+    $('#acreate').on('click',this.transitionToNeuroglancer);
+    $('#bcreate').on('click',this.transitionToNeuroglancer);
+    $('#ccreate').on('click',this.transitionToNeuroglancer);
+    $('#dcreate').on('click',this.transitionToNeuroglancer);
+    $('#ecreate').on('click',this.transitionToNeuroglancer);
+    $('#createBtn').on('click',this.createIframe);
     $('#backBtn').on('click',this.backEvent);
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
     $(document).on('click','a',{context: that},this.clickAnchor);
@@ -121,6 +126,11 @@ Galaxy.InteractionHandler.prototype = {
         document.getElementById("cpoint").style.display = "none";
         document.getElementById("dpoint").style.display = "none";
         document.getElementById("epoint").style.display = "none";
+        document.getElementById("acreate").style.display = "none";
+        document.getElementById("bcreate").style.display = "none";
+        document.getElementById("ccreate").style.display = "none";
+        document.getElementById("dcreate").style.display = "none";
+        document.getElementById("ecreate").style.display = "none";
         $('#msty').show();
         $('#mstyDialogue').hide();
         clicked("start");
@@ -176,7 +186,8 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     transitionToNeuroglancer: function(e) {
-      if (currentNeomatterValue >= 50) {
+          var tagId = '#' + e.target.id;
+          $(tagId).hide();
           mapping("yes");
           $('body').fadeOut(600, function(){
               document.getElementById("planetMap").style.display = "none";
@@ -187,7 +198,6 @@ Galaxy.InteractionHandler.prototype = {
               $('body').fadeIn(600, function(){});
           })
           socket.emit('changeNeomatter', -50);
-      };
     },
 
     inspectIframe: function() {
@@ -196,6 +206,11 @@ Galaxy.InteractionHandler.prototype = {
       document.getElementById("cpoint").style.display = "block";
       document.getElementById("dpoint").style.display = "block";
       document.getElementById("epoint").style.display = "block";
+      document.getElementById("acreate").style.display = "none";
+      document.getElementById("bcreate").style.display = "none";
+      document.getElementById("ccreate").style.display = "none";
+      document.getElementById("dcreate").style.display = "none";
+      document.getElementById("ecreate").style.display = "none";
       // document.getElementById("neomatter").style.display = "none";
       // $('body').fadeOut(600, function(){
       //   document.getElementById("planetMap").style.display = "none";
@@ -203,6 +218,21 @@ Galaxy.InteractionHandler.prototype = {
       //   $('#iframeToInspect').show();
       //   $('body').fadeIn(600, function(){});
       // })
+    },
+
+    createIframe: function() {
+      if (currentNeomatterValue >= 50) {
+        document.getElementById("acreate").style.display = "block";
+        document.getElementById("bcreate").style.display = "block";
+        document.getElementById("ccreate").style.display = "block";
+        document.getElementById("dcreate").style.display = "block";
+        document.getElementById("ecreate").style.display = "block";
+        document.getElementById("apoint").style.display = "none";
+        document.getElementById("bpoint").style.display = "none";
+        document.getElementById("cpoint").style.display = "none";
+        document.getElementById("dpoint").style.display = "none";
+        document.getElementById("epoint").style.display = "none";
+      }
     },
 
     transitionToNGToInspect: function(e) {
@@ -361,7 +391,16 @@ Galaxy.InteractionHandler.prototype = {
 
     iframeSubmitClickEvent: function(e){
         var self = this;
+        var el1 = document.getElementById("div4");
+        var d1 = document.getElementById("i4");
+        var ic1 = document.getElementById("icon4");
       $('body').fadeOut(600, function(){
+        while(el1.firstChild){
+          el1.removeChild(el1.firstChild);
+        }
+        if(!d1.firstChild){
+          d1.appendChild(ic1);
+        }
         $('#iframeDiv').height(0);
         $('#iframeDiv').hide();
         document.getElementById("planetMap").style.display = "block";
