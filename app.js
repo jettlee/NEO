@@ -8,6 +8,7 @@ var app = express();
 var server = http.Server(app);
 //var io = socketIO(server, {transports: ['websocket']});
 var io = socketIO(server);
+var maxNeomatterValue = 200;
 
 
 //app.set("view engine", "ejs");
@@ -65,6 +66,11 @@ io.on('connection', function(socket) {
 
     socket.on('changeNeomatter', function(points) {
         players[socket.id].neomatter += points;
+        if (players[socket.id].neomatter > maxNeomatterValue) {
+            players[socket.id].neomatter = maxNeomatterValue;
+        } else if (players[socket.id].neomatter < 0) {
+            players[socket.id].neomatter = 0;
+        }
         socket.emit('neomatter', players[socket.id].neomatter);
         console.log(players);
     });
