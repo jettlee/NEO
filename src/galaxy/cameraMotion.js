@@ -29,6 +29,7 @@ Galaxy.CameraMotions.prototype = {
         document.getElementById("poe").style.display = "block";
         zoom_audio.play();
         zoomed_in = true;
+        $('#mstyDialogue1').hide();
         $('#mstyDialogue2').hide();
         $('#mstyDialogue3').show();
         if (this.isAnimating === true) return;
@@ -58,7 +59,7 @@ Galaxy.CameraMotions.prototype = {
 
         // dolly camera to the particular particle
         TweenMax.to(currentPosition,duration,{
-            now:0.8, // relative position from 0 - 1, representing how far - close to the particle
+            now:0.9, // relative position from 0 - 1, representing how far - close to the particle
             onUpdate: function(){ //moving camera
                 var pos = cameraPath.getPoint(currentPosition.now);
                 that.target = new THREE.Vector3(targetCurrent.x,targetCurrent.y,targetCurrent.z);
@@ -112,6 +113,9 @@ Galaxy.CameraMotions.prototype = {
         if(zoomed_in == true){
           zoom_audio.play();
           zoomed_in = false;
+          $('#mstyDialogue3').hide();
+          $('#mstyDialogue1').hide();
+          $('#mstyDialogue2').show();
           // document.getElementById("neomatter").style.display = "none";
           document.getElementById("title-info").style.display = "none";
           document.getElementById("currentPlayers").style.display = "none";

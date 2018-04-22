@@ -61,7 +61,7 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 17%;
+  bottom: 20%;
   right: 30%;
   height: 12%;
   border: none;
@@ -75,7 +75,7 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 21%;
+  bottom: 25%;
   left: 22%;
   height: 8%;
   border: none;
@@ -134,7 +134,7 @@ body {
   display:none;
   position:absolute;
   z-index:10;
-  bottom:10px;
+  bottom:4%;
   right:10px;
   zoom:70%;
   background:rgba(0,0,0,0.01);
@@ -217,7 +217,7 @@ body {
   display:none;
   position:absolute;
   z-index:10;
-  bottom:10px;
+  bottom:4%;
   right:80px;
   zoom:70%;
   background:rgba(0,0,0,0.01);
@@ -265,7 +265,7 @@ body {
   margin-left: 15%;
 }
 
-#planetMap {
+#planetMap, #planetGen {
   display: none;
   position: absolute;
   top: 0;
@@ -277,12 +277,25 @@ body {
   background: black;
 }
 
+#backBtnPlanet {
+  display: block;
+  position: absolute;
+  zoom: 50%;
+  bottom: 2%;
+  left: 2%;
+}
+
+#planet {
+  margin-top: 15%;
+  margin-left: 40%;
+}
+
 #backBtn {
   display: block;
   position: absolute;
   zoom: 50%;
-  bottom: 10px;
-  left: 10px;
+  margin-bottom: 2%;
+  margin-left: 2%;
 }
 
 #apoint {
@@ -423,16 +436,39 @@ body {
   display: none;
   position: absolute;
   max-width: 30%;
-  bottom: 20px;
+  bottom: 10%;
   left: 0;
-  animation-duration: 6s;
+  animation-duration: 2s;
   animation-name: slideup;
 }
 
-#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4{
+#moreNM {
+  display: none;
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
+
+#morenmimg{
+  /*margin: 0 auto;*/
+  width: 50%;
+  height: 50%;
+}
+
+#okBtn {
+  display: block;
+  position: absolute;
+  width: 15%;
+  height: 10%;
+  bottom: 10%;
+  left: 18%;
+}
+
+#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4, #mstyDialogue5, #mstyDialogue6, #mstyDialogue7, #mstyDialogue8, #mstyDialogue9, #mstyDialogue10 {
   display: none;
   width: 60%;
   margin-left: 20%;
+  margin-bottom: 5%;
 }
 
 .transparentBackgroung {
