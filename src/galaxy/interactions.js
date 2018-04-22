@@ -219,8 +219,8 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     inspectIframe: function() {
-      $('#inspectBtn').fadeOut(300, function(){});
-      $('#createBtn').fadeOut(300, function(){});
+      $('#inspectBtn').fadeOut(3000, function(){});
+      $('#createBtn').fadeOut(3000, function(){});
       $('#mstyDialogue5').hide();
       $('#mstyDialogue4').hide();
       $('#mstyDialogue3').hide();
@@ -252,8 +252,8 @@ Galaxy.InteractionHandler.prototype = {
 
     createIframe: function() {
       if (updatenm() >= 50) {
-        $('#inspectBtn').fadeOut(300, function(){});
-        $('#createBtn').fadeOut(300, function(){});
+        $('#inspectBtn').fadeOut(3000, function(){});
+        $('#createBtn').fadeOut(3000, function(){});
         $('#mstyDialogue5').hide();
         $('#mstyDialogue4').hide();
         $('#mstyDialogue3').hide();
