@@ -29,6 +29,7 @@ Galaxy.CameraMotions.prototype = {
         document.getElementById("poe").style.display = "block";
         zoom_audio.play();
         zoomed_in = true;
+        $('#mstyDialogue1').hide();
         $('#mstyDialogue2').hide();
         $('#mstyDialogue3').show();
         if (this.isAnimating === true) return;
@@ -112,6 +113,9 @@ Galaxy.CameraMotions.prototype = {
         if(zoomed_in == true){
           zoom_audio.play();
           zoomed_in = false;
+          $('#mstyDialogue3').hide();
+          $('#mstyDialogue1').hide();
+          $('#mstyDialogue2').show();
           // document.getElementById("neomatter").style.display = "none";
           document.getElementById("title-info").style.display = "none";
           document.getElementById("currentPlayers").style.display = "none";
