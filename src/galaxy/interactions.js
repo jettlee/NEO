@@ -1,5 +1,22 @@
 var start = 0;
 var mapped = 0;
+var currnm = 30;
+
+function updatenm(val){
+  if(val != null) {
+    currnm+=val;
+  }
+  if(currnm < 0){
+    currnm = 0;
+    return currnm;
+  }
+  if(currnm > 200){
+    currnm = 200;
+    return currnm;
+  }
+  return currnm;
+}
+
 function clicked(str){
   if(str=="start"){
     start = 1;
@@ -132,7 +149,7 @@ Galaxy.InteractionHandler.prototype = {
         document.getElementById("dcreate").style.display = "none";
         document.getElementById("ecreate").style.display = "none";
         $('#msty').show();
-        $('#mstyDialogue').hide();
+        // $('#mstyDialogue').hide();
         clicked("start");
         $('body').fadeIn(600, function(){
           if(mapping()){
@@ -190,6 +207,7 @@ Galaxy.InteractionHandler.prototype = {
           $(tagId).hide();
           mapping("yes");
           $('body').fadeOut(600, function(){
+             updatenm(-50);
               document.getElementById("planetMap").style.display = "none";
               $('#iframeDiv').height($(document).height());
               $('#iframeDiv').show();
@@ -197,7 +215,7 @@ Galaxy.InteractionHandler.prototype = {
               $('#lowershipconsole').hide();
               $('body').fadeIn(600, function(){});
           })
-          socket.emit('changeNeomatter', -50);
+          // socket.emit('changeNeomatter', -50);
     },
 
     inspectIframe: function() {
@@ -223,7 +241,7 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     createIframe: function() {
-      if (currentNeomatterValue >= 10) {
+      if (updatenm() >= 50) {
         $('#inspectBtn').fadeOut(300, function(){});
         $('#createBtn').fadeOut(300, function(){});
         document.getElementById("acreate").style.display = "block";
@@ -321,7 +339,9 @@ Galaxy.InteractionHandler.prototype = {
             document.getElementById("currentPlayers").style.display = "none";
             document.getElementById("coordinates").style.display = "none";
             document.getElementById("poe").style.display = "none";
-            $('#msty').hide();
+            $('#mstyDialogue3').hide();
+            $('#mstyDialogue4').show();
+            // $('#msty').hide();
             $('body').fadeOut(600, function(){
                 document.getElementById("planetMap").style.display = "block";
                 clicked("stop");
@@ -349,7 +369,10 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     updateProgressBar: function(){
-        bar.animate(currentNeomatterValue / maxNeomatterValue);
+        // bar.animate(currentNeomatterValue / maxNeomatterValue);
+        var max = 200;
+        var curr = updatenm();
+        bar.animate(curr/max);
     },
 
     iframeSubmitClickEvent1: function(e){
@@ -420,6 +443,7 @@ Galaxy.InteractionHandler.prototype = {
         $('#ecreate').hide();
       $('body').fadeOut(600, function(){
         while(el1.firstChild){
+          updatenm(-5);
           el1.removeChild(el1.firstChild);
         }
         if(!d1.firstChild){
@@ -428,8 +452,9 @@ Galaxy.InteractionHandler.prototype = {
         $('#iframeDiv').height(0);
         $('#iframeDiv').hide();
         document.getElementById("planetMap").style.display = "block";
+        self.updateProgressBar();
         $('body').fadeIn(600, function(){
-            self.updateProgressBar();
+            console.log("curr is "+updatenm());
             $('#uppershipconsole').show();
             $('#lowershipconsole').show();
         });

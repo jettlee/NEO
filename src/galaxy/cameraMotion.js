@@ -29,6 +29,8 @@ Galaxy.CameraMotions.prototype = {
         document.getElementById("poe").style.display = "block";
         zoom_audio.play();
         zoomed_in = true;
+        $('#mstyDialogue2').hide();
+        $('#mstyDialogue3').show();
         if (this.isAnimating === true) return;
         // temporarily: the first click will zoom in, and we'll strafe after that.
         // if (this.firstClick === false) {

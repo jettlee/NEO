@@ -123,12 +123,17 @@
       <img id="backBtn" src="images/back_button.png">
     </div>
     <div id="msty">
-      <img id="mstyDialogue" src="images/MSTY-Dialogue-Navi.png">
+      <img id="mstyDialogue1" src="images/Msty_NAVI1.png">
+      <img id="mstyDialogue2" src="images/Msty_NAVI2.png">
+      <img id="mstyDialogue3" src="images/Msty_NAVI3.png">
+      <img id="mstyDialogue4" src="images/Msty_3Dmap1.png">
       <img id="mstyChar" src="images/Msty.gif" alt="">
     </div>
     <div id="myBar" class="transparentBackgroung" style="margin:2%"></div>
     <div><img id="uppershipconsole" src="images/Upper-cockpit.png"></div>
     <div><img id="lowershipconsole" src="images/Lower-Cockpit.png"></div>
+    <!-- <div><img id="lowershipconsole" src="images/Bottom.png"></div>
+    <div><img id="uppershipconsole" src="images/Top.png"></div> -->
     <canvas id="three-canvas" style="width: 100%; height: 100%"></canvas>
     <script type="text/javascript">
 
@@ -162,6 +167,12 @@
       $('#uppershipconsole').show();
       $('#lowershipconsole').show();
       $('#msty').show();
+      $('#mstyDialogue1').show();
+
+      sleep(10000).then(() => {
+        $('#mstyDialogue1').hide();
+        $('#mstyDialogue2').show();
+      });
       // instantiate progressbar
       if (bar === undefined) {
           bar = new ProgressBar.Line(myBar, {
@@ -200,6 +211,10 @@
       bar.animate(30/200);
   }
 
+  function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
     function allowDrop(ev) {
       ev.preventDefault();
     }
@@ -210,7 +225,8 @@
 
     function drop(ev) {
       ev.preventDefault();
-      socket.emit('changeNeomatter', 50);
+      // socket.emit('changeNeomatter', 50);
+      updatenm(5);
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
     }

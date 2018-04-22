@@ -429,7 +429,8 @@ body {
   animation-name: slideup;
 }
 
-#mstyDialogue{
+#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4{
+  display: none;
   width: 60%;
   margin-left: 20%;
 }
