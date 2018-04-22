@@ -186,18 +186,18 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     transitionToNeuroglancer: function(e) {
+        // to neuroglancer for mapping
           var tagId = '#' + e.target.id;
-          $(tagId).hide();
           mapping("yes");
           $('body').fadeOut(600, function(){
               document.getElementById("planetMap").style.display = "none";
               $('#iframeDiv').height($(document).height());
               $('#iframeDiv').show();
+              $(tagId).hide();
               $('#uppershipconsole').hide();
               $('#lowershipconsole').hide();
               $('body').fadeIn(600, function(){});
           })
-          socket.emit('changeNeomatter', -50);
     },
 
     inspectIframe: function() {
@@ -223,7 +223,7 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     createIframe: function() {
-      if (currentNeomatterValue >= 10) {
+      if (currentNeomatterValue >= 50) {
         $('#inspectBtn').fadeOut(300, function(){});
         $('#createBtn').fadeOut(300, function(){});
         document.getElementById("acreate").style.display = "block";
@@ -240,8 +240,8 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     transitionToNGToInspect: function(e) {
+        // to neuroglancer for inspection
       var tagId = '#' + e.target.id;
-      // document.getElementById("neomatter").style.display = "none";
       $('body').fadeOut(600, function(){
         document.getElementById("planetMap").style.display = "none";
         $('#iframeToInspect').height($(document).height());
@@ -353,7 +353,9 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     iframeSubmitClickEvent1: function(e){
+        // submit in inspecting
         var self = this;
+        var countForFlags = 0;
         $('body').fadeOut(600, function(){
         $('#iframeToInspect').height(0);
         $('#iframeToInspect').hide();
@@ -379,12 +381,15 @@ Galaxy.InteractionHandler.prototype = {
         var ic3 = document.getElementById("icon3");
         while(el1.firstChild){
           el1.removeChild(el1.firstChild);
+          countForFlags++;
         }
         while(el2.firstChild){
           el2.removeChild(el2.firstChild);
+          countForFlags++;
         }
         while(el3.firstChild){
           el3.removeChild(el3.firstChild);
+          countForFlags++;
         }
         if(!d1.firstChild){
           d1.appendChild(ic1);
@@ -395,6 +400,7 @@ Galaxy.InteractionHandler.prototype = {
         if(!d3.firstChild){
           d3.appendChild(ic3);
         }
+        socket.emit('changeNeomatter', 50 * countForFlags);
         $('body').fadeIn(600, function(){
             self.updateProgressBar();
             $('#uppershipconsole').show();
@@ -404,7 +410,10 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     iframeSubmitClickEvent: function(e){
+        // submit in mapping
         var self = this;
+        socket.emit('changeNeomatter', -50);
+        console.log('neomatter changed' + currentNeomatterValue);
         var el1 = document.getElementById("div4");
         var d1 = document.getElementById("i4");
         var ic1 = document.getElementById("icon4");
