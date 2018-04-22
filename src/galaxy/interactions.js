@@ -86,6 +86,14 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     $('#backBtn').on('click',this.backEvent);
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
     $(document).on('click','a',{context: that},this.clickAnchor);
+    $('#startbtn').on('click', function(){
+        that.reset({projectTagsAddAfterCameraReset: true});
+        _.delay(function(){
+            if (that.__tagManager.__activeTagCount == 0) {
+                that.reset({projectTagsAddAfterCameraReset: true});
+            }
+        }, 2000);
+    });
 
     //this.searchButton = new window.GalaxyToolbar();
     //this.searchButton.on("requestSearchKeyboard",this.initiateSearch);
