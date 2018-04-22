@@ -492,7 +492,7 @@ Galaxy.InteractionHandler.prototype = {
           d3.appendChild(ic3);
         }
         // socket.emit('changeNeomatter', 5 * countForFlags);
-        updatenm(5*countForFlags);
+        updatenm(20*countForFlags);
         console.log("\nFlags are "+countForFlags+"\n");
         $('body').fadeIn(600, function(){
             self.updateProgressBar();
