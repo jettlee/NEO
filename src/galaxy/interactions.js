@@ -4,7 +4,9 @@ var currnm = 30;
 
 function updatenm(val){
   if(val != null) {
+    console.log("Val is "+val);
     currnm+=val;
+    console.log("New curr is "+currnm);
   }
   if(currnm < 0){
     currnm = 0;
@@ -249,7 +251,7 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     createIframe: function() {
-      if (currentNeomatterValue >= 50) {
+      if (updatenm() >= 50) {
         $('#inspectBtn').fadeOut(300, function(){});
         $('#createBtn').fadeOut(300, function(){});
         $('#mstyDialogue5').hide();
@@ -402,10 +404,11 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     updateProgressBar: function(){
-        bar.animate(currentNeomatterValue / maxNeomatterValue);
-        // var max = 200;
-        // var curr = updatenm();
-        // bar.animate(curr/max);
+        // bar.animate(currentNeomatterValue / maxNeomatterValue);
+        var max = 200;
+        var curr = updatenm();
+        console.log(curr);
+        bar.animate(curr/max);
     },
 
     iframeSubmitClickEvent1: function(e){
@@ -480,7 +483,9 @@ Galaxy.InteractionHandler.prototype = {
         if(!d3.firstChild){
           d3.appendChild(ic3);
         }
-        socket.emit('changeNeomatter', 5 * countForFlags);
+        // socket.emit('changeNeomatter', 5 * countForFlags);
+        updatenm(5*countForFlags);
+        console.log("\nFlags are "+countForFlags+"\n");
         $('body').fadeIn(600, function(){
             self.updateProgressBar();
             $('#uppershipconsole').show();
@@ -515,8 +520,9 @@ Galaxy.InteractionHandler.prototype = {
           $('#mstyDialogue10').show();
         });
         var self = this;
-        socket.emit('changeNeomatter', -50);
-        console.log('neomatter changed' + currentNeomatterValue);
+        // socket.emit('changeNeomatter', -50);
+        updatenm(-50);
+        // console.log('neomatter changed' + currentNeomatterValue);
         var el1 = document.getElementById("div4");
         var d1 = document.getElementById("i4");
         var ic1 = document.getElementById("icon4");

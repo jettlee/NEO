@@ -240,7 +240,7 @@
     function drop(ev) {
       ev.preventDefault();
       // socket.emit('changeNeomatter', 50);
-      updatenm(5);
+      // updatenm(5);
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
     }
