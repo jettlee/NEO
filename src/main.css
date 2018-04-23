@@ -102,11 +102,8 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  font-size: 20px;
-  top: 45%;
-  left: 15%;
-  height: 8%;
-  width: 12%;
+  bottom: 14%;
+  left: 40%;
   border: none;
   animation: fadein 2s;
   -moz-animation: fadein 2s; /* Firefox */
@@ -118,11 +115,8 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  font-size: 20px;
-  top: 45%;
-  right: 15%;
-  height: 8%;
-  width: 12%;
+  bottom: 14%;
+  right: 40%;
   border: none;
   animation: fadein 2s;
   -moz-animation: fadein 2s; /* Firefox */
@@ -278,14 +272,14 @@ body {
 }
 
 #backBtnPlanet {
-  display: block;
-  position: absolute;
-  z-index:10;
-  bottom:1.22%;
-  right:10%;
-  zoom: 45%;
-  bottom: 2%;
-  left: 2%;
+    display: block;
+    position: absolute;
+    z-index:10;
+    bottom:1.22%;
+    right:10%;
+    zoom: 45%;
+    margin-bottom: 2%;
+    margin-left: 2%;
 }
 
 #planet {

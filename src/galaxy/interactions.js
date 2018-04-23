@@ -417,6 +417,11 @@ Galaxy.InteractionHandler.prototype = {
         var curr = updatenm();
         console.log(curr);
         bar.animate(curr/max);
+        if (curr >= 50) {
+            $('#createBtn').attr("src", "images/MapBtn.png");
+        } else {
+            $('#createBtn').attr("src", "images/MapDisableBtn.png");
+        }
     },
 
     iframeSubmitClickEvent1: function(e){
@@ -529,7 +534,7 @@ Galaxy.InteractionHandler.prototype = {
         });
         var self = this;
         // socket.emit('changeNeomatter', -50);
-        updatenm(-50);
+        //updatenm(-50);
         // console.log('neomatter changed' + currentNeomatterValue);
         var el1 = document.getElementById("div4");
         var d1 = document.getElementById("i4");
@@ -546,7 +551,7 @@ Galaxy.InteractionHandler.prototype = {
         $('#ecreate').hide();
       $('body').fadeOut(600, function(){
         while(el1.firstChild){
-          updatenm(-5);
+          //updatenm(-5);
           el1.removeChild(el1.firstChild);
         }
         if(!d1.firstChild){
