@@ -52,7 +52,7 @@ socket.on('neomatter', function(value){
 Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.cameraMotions = new Galaxy.CameraMotions(camera);
     _.bindAll(this,'canvasClickEvent','selectVertex', 'iframeSubmitClickEvent','iframeSubmitClickEvent1','transitionToNeuroglancer','inspectIframe');
-    _.bindAll(this,'showInstructable', 'getTagManager','resetInteractionTimer','backEvent','transitionToNGToInspect','backFromPlanetGeneration');
+    _.bindAll(this,'showInstructable', 'getTagManager','resetInteractionTimer','backEvent','transitionToNGToInspect','backFromPlanetGeneration','enterWormhole');
 
     // need status right away, in case we need to report something:
     //this.__statusIndicator = new window.GalaxyStatusIndicator();
@@ -87,6 +87,7 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     $('#createBtn').on('click',this.createIframe);
     $('#backBtn').on('click',this.backEvent);
     $('#backBtnPlanet').on('click',this.backFromPlanetGeneration);
+    $('#poe').on('click',this.enterWormhole);
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
     $(document).on('click','a',{context: that},this.clickAnchor);
     $('#startbtn').on('click', function(){
@@ -409,6 +410,30 @@ Galaxy.InteractionHandler.prototype = {
         //     // no intersections are within tolerance.
         //     this.reset({projectTagsAddAfterCameraReset: true});
         // }
+    },
+
+    enterWormhole: function(){
+      document.getElementById("title-info").style.display = "none";
+      document.getElementById("currentPlayers").style.display = "none";
+      document.getElementById("coordinates").style.display = "none";
+      document.getElementById("poe").style.display = "none";
+      // $('#msty').hide();
+      $('body').fadeOut(600, function(){
+          document.getElementById("planetMap").style.display = "block";
+          clicked("stop");
+          $('body').fadeIn(600, function(){
+            $('#mstyDialogue9').hide();
+            $('#mstyDialogue10').hide();
+            $('#mstyDialogue3').hide();
+            $('#mstyDialogue1').hide();
+            $('#mstyDialogue2').hide();
+            $('#mstyDialogue5').hide();
+            $('#mstyDialogue6').hide();
+            $('#mstyDialogue7').hide();
+            $('#mstyDialogue8').hide();
+            $('#mstyDialogue4').show();
+          });
+      })
     },
 
     updateProgressBar: function(){
