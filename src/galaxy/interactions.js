@@ -1,6 +1,7 @@
 var start = 0;
 var mapped = 0;
 var currnm = 30;
+var terminated = false;
 
 function updatenm(val){
   if(val != null) {
@@ -185,7 +186,13 @@ Galaxy.InteractionHandler.prototype = {
       // document.getElementById("poe").style.display = "block";
       document.getElementById("inspectBtn").style.display = "block";
       document.getElementById("createBtn").style.display = "block";
-      $('#mstyDialogue5').show();
+      console.log(document.getElementById("mstyDialogue11").style.display);
+      if(document.getElementById("mstyDialogue11").style.display == "inline"){
+        $('#mstyDialogue5').hide();
+      } else{
+        $('#mstyDialogue5').show();
+      }
+
       $('#mstyDialogue1').hide();
       $('#mstyDialogue2').hide();
       $('#mstyDialogue3').hide();
@@ -228,8 +235,8 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     inspectIframe: function() {
-      $('#inspectBtn').fadeOut(3000, function(){});
-      $('#createBtn').fadeOut(3000, function(){});
+      $('#inspectBtn').fadeOut(1100, function(){});
+      $('#createBtn').fadeOut(1000, function(){});
       $('#mstyDialogue5').hide();
       $('#mstyDialogue4').hide();
       $('#mstyDialogue3').hide();
@@ -240,6 +247,7 @@ Galaxy.InteractionHandler.prototype = {
       $('#mstyDialogue8').hide();
       $('#mstyDialogue9').hide();
       $('#mstyDialogue10').hide();
+      $('#mstyDialogue11').show();
       document.getElementById("apoint").style.display = "block";
       document.getElementById("bpoint").style.display = "block";
       document.getElementById("cpoint").style.display = "block";
@@ -263,6 +271,7 @@ Galaxy.InteractionHandler.prototype = {
       if (updatenm() >= 50) {
         $('#inspectBtn').fadeOut(3000, function(){});
         $('#createBtn').fadeOut(3000, function(){});
+        $('#mstyDialogue11').show();
         $('#mstyDialogue5').hide();
         $('#mstyDialogue4').hide();
         $('#mstyDialogue3').hide();
@@ -462,8 +471,8 @@ Galaxy.InteractionHandler.prototype = {
         $('#mstyDialogue1').hide();
         $('#mstyDialogue9').hide();
         $('#mstyDialogue10').hide();
-
-        sleep(6000).then(() => {
+        $('#mstyDialogue11').hide();
+        sleep(11000).then(() => {
           $('#mstyDialogue6').hide();
           $('#mstyDialogue7').show();
           $('#mstyDialogue5').hide();
@@ -474,6 +483,7 @@ Galaxy.InteractionHandler.prototype = {
           $('#mstyDialogue8').hide();
           $('#mstyDialogue9').hide();
           $('#mstyDialogue10').hide();
+          $('#mstyDialogue11').hide();
         });
         var self = this;
         var countForFlags = 0;
@@ -533,6 +543,9 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     iframeSubmitClickEvent: function(e){
+      var self = this;
+      if(document.getElementById("div4").firstChild){
+        terminated = true;
         // submit in mapping
         $('#msty').show();
         $('#mstyDialogue8').hide();
@@ -544,6 +557,7 @@ Galaxy.InteractionHandler.prototype = {
         $('#mstyDialogue2').hide();
         $('#mstyDialogue1').hide();
         $('#mstyDialogue10').hide();
+        $('#mstyDialogue11').hide();
         $('#mstyDialogue9').show();
         sleep(6000).then(() => {
           $('#mstyDialogue6').hide();
@@ -556,8 +570,8 @@ Galaxy.InteractionHandler.prototype = {
           $('#mstyDialogue8').hide();
           $('#mstyDialogue9').hide();
           $('#mstyDialogue10').show();
+          $('#mstyDialogue11').hide();
         });
-        var self = this;
         // socket.emit('changeNeomatter', -50);
         //updatenm(-50);
         // console.log('neomatter changed' + currentNeomatterValue);
@@ -601,6 +615,29 @@ Galaxy.InteractionHandler.prototype = {
         $('#lowershipconsole').show();
         $('body').fadeIn(600, function(){});
       })
+    } else {
+      $('#msty').show();
+      $('#mstyDialogue1').hide();
+      $('#mstyDialogue2').hide();
+      $('#mstyDialogue3').hide();
+      $('#mstyDialogue4').hide();
+      $('#mstyDialogue6').hide();
+      $('#mstyDialogue7').hide();
+      $('#mstyDialogue5').hide();
+      $('#mstyDialogue9').hide();
+      $('#mstyDialogue10').hide();
+      $('#mstyDialogue11').hide();
+      $('#mstyDialogue8').show();
+      $('body').fadeOut(600, function(){
+        $('#iframeDiv').hide();
+        $('#planetMap').show();
+        $('body').fadeIn(600, function(){
+          self.updateProgressBar();
+          $('#uppershipconsole').show();
+          $('#lowershipconsole').show();
+        });
+      });
+    }
         // var self = this;
         // e.preventDefault();
         // e.stopPropagation();

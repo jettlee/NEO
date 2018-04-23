@@ -142,6 +142,7 @@
       <img id="mstyDialogue6" src="images/Msty_3Dmap3.png">
       <img id="mstyDialogue7" src="images/Msty_3Dmap4.png">
       <img id="mstyDialogue8" src="images/Msty_3Dmap5.png">
+      <img id="mstyDialogue11" src="images/Msty_3Dmap6.png">
       <img id="mstyDialogue9" src="images/Msty_PlanetPage1.png">
       <img id="mstyDialogue10" src="images/Msty_PlanetPage2.png">
       <img id="mstyChar" src="images/Msty.gif" alt="">
@@ -180,13 +181,14 @@
       clicked("start");
       var el = document.getElementById("start");
       // removeFadeOut(el, 3000);
+      $('#start').fadeOut(1000, function(){});
       el.parentNode.removeChild(el);
       $('#uppershipconsole').show();
       $('#lowershipconsole').show();
       $('#msty').show();
       $('#mstyDialogue1').show();
 
-      sleep(5000).then(() => {
+      sleep(8000).then(() => {
         $('#mstyDialogue1').hide();
         $('#mstyDialogue2').show();
       });

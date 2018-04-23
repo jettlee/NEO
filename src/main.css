@@ -47,8 +47,8 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  top: 25%;
-  right: 20%;
+  top: 28%;
+  right: 23%;
   height: 10%;
   border: none;
   animation: fadein 2s;
@@ -61,7 +61,7 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 20%;
+  bottom: 24%;
   right: 30%;
   height: 12%;
   border: none;
@@ -203,7 +203,7 @@ body {
     height: 15%;
     padding: 10px;
     top: 35%;
-    right: 37%;
+    right: 34%;
     border: 1px solid #aaaaaa;
 }
 
@@ -464,7 +464,7 @@ body {
   left: 18%;
 }
 
-#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4, #mstyDialogue5, #mstyDialogue6, #mstyDialogue7, #mstyDialogue8, #mstyDialogue9, #mstyDialogue10 {
+#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4, #mstyDialogue5, #mstyDialogue6, #mstyDialogue7, #mstyDialogue8, #mstyDialogue9, #mstyDialogue10, #mstyDialogue11 {
   display: none;
   width: 60%;
   margin-left: 5%;
