@@ -280,7 +280,10 @@ body {
 #backBtnPlanet {
   display: block;
   position: absolute;
-  zoom: 50%;
+  z-index:10;
+  bottom:1.22%;
+  right:10%;
+  zoom: 45%;
   bottom: 2%;
   left: 2%;
 }
@@ -293,7 +296,10 @@ body {
 #backBtn {
   display: block;
   position: absolute;
-  zoom: 50%;
+  z-index:10;
+  bottom:1.22%;
+  right:10%;
+  zoom: 45%;
   margin-bottom: 2%;
   margin-left: 2%;
 }
@@ -436,7 +442,7 @@ body {
   display: none;
   position: absolute;
   max-width: 30%;
-  bottom: 10%;
+  bottom: -10%;
   left: 0;
   animation-duration: 2s;
   animation-name: slideup;
@@ -467,8 +473,8 @@ body {
 #mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4, #mstyDialogue5, #mstyDialogue6, #mstyDialogue7, #mstyDialogue8, #mstyDialogue9, #mstyDialogue10 {
   display: none;
   width: 60%;
-  margin-left: 20%;
-  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-bottom: -20%;
 }
 
 .transparentBackgroung {
