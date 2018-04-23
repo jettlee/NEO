@@ -628,6 +628,18 @@ Galaxy.InteractionHandler.prototype = {
       $('#mstyDialogue10').hide();
       $('#mstyDialogue11').hide();
       $('#mstyDialogue8').show();
+      $('#apoint').hide();
+      $('#bpoint').hide();
+      $('#cpoint').hide();
+      $('#dpoint').hide();
+      $('#epoint').hide();
+      $('#acreate').hide();
+      $('#bcreate').hide();
+      $('#ccreate').hide();
+      $('#dcreate').hide();
+      $('#ecreate').hide();
+      $('#inspectBtn').show();
+      $('#createBtn').show();
       $('body').fadeOut(600, function(){
         $('#iframeDiv').hide();
         $('#planetMap').show();
