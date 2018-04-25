@@ -147,8 +147,10 @@
       <img id="mstyDialogue10" src="images/Msty_PlanetPage2.png">
       <img id="mstyChar" src="images/Msty.gif" alt="">
     </div>
+    <div><img id="neomatterIcon" src="images/NEOMATTER-ICON.png" class="transparentBackgroung"></div>
     <div>
-        <div id="myBar" class="transparentBackgroung" style="margin:2%"></div>
+        <p id="neomatterTitle" class="transparentBackgroung">NEOMATTER</p>
+        <div id="myBar" class="transparentBackgroung" style="margin:2%; padding-left: 50px; padding-top: 10px"></div>
     </div>
     <div><img id="uppershipconsole" src="images/Upper-cockpit.png"></div>
     <div><img id="lowershipconsole" src="images/Lower-Cockpit.png"></div>
@@ -208,12 +210,12 @@
                       // Default: same as stroke color (options.color)
                       color: '#96bfb2',
                       position: 'absolute',
-                      right: '45%',
-                      top: '65%',
-                      padding: '10px',
+                      right: '-10%',
+                      top: '-190%',
+                      padding: '30px',
                       margin: '15px',
                       transform: null,
-                      fontSize: '18px',
+                      fontSize: '20px',
                       fontFamily: 'Orbitron'
                   },
                   autoStyleContainer: false
@@ -222,7 +224,7 @@
               to: {color: '#96bfb2'},
               step: (state, bar) => {
                   bar.path.setAttribute('stroke', state.color);
-                  bar.setText('NEOMATTER  ' + Math.round(bar.value() * 100 * 2)+ ' / ' + maxNeomatterValue);
+                  bar.setText(Math.round(bar.value() * 100 * 2)+ ' / ' + maxNeomatterValue);
               },
           });
       }
