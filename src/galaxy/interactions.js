@@ -232,6 +232,7 @@ Galaxy.InteractionHandler.prototype = {
              updatenm(-50);
               $('#iframeDiv').height($(document).height());
               $('#iframeDiv').show();
+              $('#mapInst').show();
               $(tagId).hide();
               $('#uppershipconsole').hide();
               $('#lowershipconsole').hide();
@@ -554,6 +555,7 @@ Galaxy.InteractionHandler.prototype = {
       if(document.getElementById("div4").firstChild){
         terminated = true;
         // submit in mapping
+        $('#mapInst').hide();
         $('#msty').show();
         $('#mstyDialogue8').hide();
         $('#mstyDialogue7').hide();
