@@ -75,8 +75,8 @@ body {
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 34%;
-  left: 31.5%;
+  bottom: 31%;
+  left: 30%;
   height: 20%;
   border: none;
   animation: fadein 2s;
@@ -141,7 +141,7 @@ body {
   z-index: 10;
   left: 5%;
   top: 30%;
-  zoom: 20%;
+  zoom: 25%;
 }
 
 #icon2 {
@@ -150,7 +150,7 @@ body {
   z-index: 10;
   top: 50%;
   left: 5%;
-  zoom: 20%;
+  zoom: 25%;
 }
 
 #icon3 {
@@ -159,7 +159,7 @@ body {
   z-index: 10;
   top: 70%;
   left: 5%;
-  zoom: 20%;
+  zoom: 25%;
 }
 
 #icon4 {
@@ -168,15 +168,15 @@ body {
   z-index: 10;
   top: 50%;
   left: 5%;
-  zoom: 20%;
+  zoom: 25%;
 }
 
 #div1 {
     display: block;
     position: absolute;
     z-index: 10;
-    width: 10%;
-    height: 15%;;
+    width: 5%;
+    height: 10%;;
     padding: 10px;
     top: 80%;
     right: 35%;
@@ -187,8 +187,8 @@ body {
     display: block;
     position: absolute;
     z-index: 10;
-    width: 10%;
-    height: 15%;
+    width: 5%;
+    height: 10%;
     padding: 10px;
     top: 40%;
     right: 15%;
@@ -199,8 +199,8 @@ body {
     display: block;
     position: absolute;
     z-index: 10;
-    width: 10%;
-    height: 15%;
+    width: 5%;
+    height: 10%;
     padding: 10px;
     top: 35%;
     right: 34%;
