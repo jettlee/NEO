@@ -591,3 +591,69 @@ body {
   top: 40%;
   left: 62%;
 }
+
+#neomatterIcon {
+    width: 50px;
+    height: 50px;
+    margin: 1%;
+}
+
+#neomatterTitle {
+    font-weight: 'Orbitron';
+    color: #96bfb2;
+    font-size: 20px;
+    margin: 10px;
+    padding-left: 75px;
+}
+
+.scrollbar {
+    width: 700px;
+    height: 300px;
+    background-color: #005057;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: none;
+    top: 40%;
+    left: 35%;
+    margin-top: -50px;
+    margin-left: -50px;
+    z-index: 100;
+}
+
+.content {
+    min-width:150px;
+    min-height: 200px;
+}
+
+#menuwrapper ul {
+    white-space: nowrap;
+    list-style: none;
+}
+
+#menuwrapper ul li {
+    list-style: none;
+    display: inline;
+}
+#menuwrapper ul li img{
+    width:150px;
+    height: 150px;
+}
+
+#planetGallery::-webkit-scrollbar {
+    width: 18px;
+}
+
+/* Track */
+#planetGallery::-webkit-scrollbar-track {
+    background: #032d31;
+}
+
+/* Handle */
+#planetGallery::-webkit-scrollbar-thumb {
+    background: #00a8aa;
+}
+
+/* Handle on hover */
+#planetGallery::-webkit-scrollbar-thumb:hover {
+    background: #018284;
+}

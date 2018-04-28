@@ -3,6 +3,8 @@ var mapped = 0;
 var currnm = 30;
 var terminated = false;
 
+var galleryPrefix = "./images/PlanetGallery/";
+
 function updatenm(val){
   if(val != null) {
     console.log("Val is "+val);
@@ -68,6 +70,7 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.__interactionTimer = null;
     this.__constellation = null;
     this.__onscreenKeyboardView = null;
+    this.planetGatheredNum = 0;
 
     var that = this;
     $('#three-canvas').on('click',this.canvasClickEvent);
@@ -89,6 +92,10 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     $('#backBtn').on('click',this.backEvent);
     $('#backBtnPlanet').on('click',this.backFromPlanetGeneration);
     $('#poe').on('click',this.enterWormhole);
+    $('#planetGalleryBtn').on('click', function(){
+        $('#planetGallery').toggle();
+    });
+
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
     $(document).on('click','a',{context: that},this.clickAnchor);
     $('#startbtn').on('click', function(){
@@ -597,10 +604,12 @@ Galaxy.InteractionHandler.prototype = {
           d1.appendChild(ic1);
         }
         // document.getElementById("planetMap").style.display = "block";
-        var planetImgArray  = ["./images/ang-transparent.png","./images/ash-transparent.png","./images/ero-transparent.png","./images/fire-transparent.png","./images/glee-transparent.png","./images/gold-transparent.png","./images/jade-transparent.png","./images/test3-transparent.png","./images/test5-transparent.png"];
+        var planetImgArray  = ["./images/pg-ang.png","./images/pg-ash.png","./images/pg-ero.png","./images/pg-fire.png","./images/ang-glee.png","./images/ang-gold.png","./images/ang-jade.png","./images/ang-pluto.png","./images/ang-test.png"];
         var elem = document.createElement("img");
         var planetIndex = Math.floor(Math.random() * Math.floor(planetImgArray.length));
         elem.setAttribute("src",planetImgArray[planetIndex]);
+        self.generatePlanetInGallery(planetImgArray[planetIndex]);
+        self.planetGatheredNum++;
         elem.setAttribute("width","35%");
         elem.setAttribute("height","35%");
         if(document.getElementById("planet").firstChild){
@@ -698,6 +707,19 @@ Galaxy.InteractionHandler.prototype = {
         //         }, 500);
         //     });
         // });
+    },
+
+    generatePlanetInGallery: function(imgPath) {
+        // get gallery planet file path
+        var str = imgPath.split("/");
+        var galleryFilePath = galleryPrefix + str[str.length - 1];
+
+        // get index of row and col for placing img
+        console.log(this.planetGatheredNum);
+        var row = parseInt(this.planetGatheredNum / 4, 10);
+        var col = this.planetGatheredNum % 4;
+
+        $('#planetGallery')[0].children[0].children[0].children[row].children[col].children[0].src = galleryFilePath;
     },
 
     integerRandom: function(){
