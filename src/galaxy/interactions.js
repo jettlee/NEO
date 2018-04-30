@@ -321,6 +321,7 @@ Galaxy.InteractionHandler.prototype = {
       $('body').fadeOut(600, function(){
         $('#iframeToInspect').height($(document).height());
         $('#iframeToInspect').show();
+        $('#inspectInst').show();
         $('#uppershipconsole').hide();
         $('#lowershipconsole').hide();
         document.getElementById("planetMap").style.display = "none";
