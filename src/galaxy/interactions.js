@@ -1,6 +1,6 @@
 var start = 0;
 var mapped = 0;
-var currnm = 50;
+var currnm = 30;
 var terminated = false;
 
 var galleryPrefix = "./images/PlanetGallery/";
