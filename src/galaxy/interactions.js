@@ -93,7 +93,13 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     $('#backBtnPlanet').on('click',this.backFromPlanetGeneration);
     $('#poe').on('click',this.enterWormhole);
     $('#planetGalleryBtn').on('click', function(){
-        $('#planetGallery').toggle();
+        if ($('#planetGalleryContainer').hasClass('hiddenClass')) {
+            $('#planetGalleryContainer').removeClass('hiddenClass');
+            $('#planetGalleryContainer').addClass('flexClass');
+        } else {
+            $('#planetGalleryContainer').removeClass('flexClass');
+            $('#planetGalleryContainer').addClass('hiddenClass');
+        }
     });
 
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
@@ -718,11 +724,21 @@ Galaxy.InteractionHandler.prototype = {
         var galleryFilePath = galleryPrefix + str[str.length - 1];
 
         // get index of row and col for placing img
-        console.log(this.planetGatheredNum);
         var row = parseInt(this.planetGatheredNum / 4, 10);
         var col = this.planetGatheredNum % 4;
 
         $('#planetGallery')[0].children[0].children[0].children[row].children[col].children[0].src = galleryFilePath;
+
+        // add listener to invoke hover EffectComposer
+        var id = '#' + 'galleryBtn' + this.planetGatheredNum;
+        $(id).hover(
+            function(){
+                var foundPostFix = '-found.png'
+                var galleryFoundFilePath = galleryFilePath.substring(0, galleryFilePath.length - 4) + foundPostFix;
+                $('#planetGallery')[0].children[0].children[0].children[row].children[col].children[0].src = galleryFoundFilePath;
+            }, function(){
+                $('#planetGallery')[0].children[0].children[0].children[row].children[col].children[0].src = galleryFilePath;
+            });
     },
 
     integerRandom: function(){

@@ -149,35 +149,38 @@
       <img id="mstyDialogue10" src="images/Msty_PlanetPage2.png">
       <img id="mstyChar" src="images/Msty.gif" alt="">
     </div>
+
     <div><img id="neomatterIcon" src="images/NEOMATTER-ICON.png" class="transparentBackgroung"></div>
     <div>
         <p id="neomatterTitle" class="transparentBackgroung">NEOMATTER</p>
-        <div id="myBar" class="transparentBackgroung" style="margin:2%; padding-left: 50px; padding-top: 10px"></div>
+        <div id="myBar" class="transparentBackgroung" style="padding-left: 7%; padding-top: 5%"></div>
     </div>
     <div><img id="uppershipconsole" src="images/Upper-cockpit.png"></div>
     <div><img id="lowershipconsole" src="images/Lower-Cockpit.png"></div>
 
-    <div id="planetGallery" class="scrollbar transparentBackgroung">
-        <div class="content col-md-3 col-sm-6">
-            <div id="menuwrapper" class="thumbnail">
-                <ul>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                </ul>
-                <ul>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                </ul>
-                <ul>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                    <li><img src="images/planetGallery/00-pg-blank.png"></li>
-                </ul>
+    <div id="planetGalleryContainer" class="flex-container transparentBackgroung hiddenClass" style="height: 100%; width:100%; align-items:center; justify-content: center">
+        <div id="planetGallery" class="item scrollbar">
+            <div class="content col-md-3 col-sm-6">
+                <div id="menuwrapper" class="thumbnail">
+                    <ul>
+                        <li><input id="galleryBtn0" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn1" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn2" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn3" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                    </ul>
+                    <ul>
+                        <li><input id="galleryBtn4" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn5" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn6" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn7" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                    </ul>
+                    <ul>
+                        <li><input id="galleryBtn8" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn9" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn10" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                        <li><input id="galleryBtn11" type="image" src="images/planetGallery/00-pg-blank.png"/></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -241,7 +244,7 @@
                       color: '#96bfb2',
                       position: 'absolute',
                       right: '-10%',
-                      top: '-190%',
+                      top: '-45%',
                       padding: '30px',
                       margin: '15px',
                       transform: null,
@@ -260,6 +263,9 @@
       }
 
       bar.animate(30/200);
+
+      $('#neomatterIcon').show();
+      $('#neomatterTitle').show();
   }
 
   function sleep (time) {
