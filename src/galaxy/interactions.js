@@ -1,6 +1,6 @@
 var start = 0;
 var mapped = 0;
-var currnm = 30;
+var currnm = 50;
 var terminated = false;
 
 var galleryPrefix = "./images/PlanetGallery/";
@@ -100,6 +100,22 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
             $('#planetGalleryContainer').removeClass('flexClass');
             $('#planetGalleryContainer').addClass('hiddenClass');
         }
+    });
+
+    $('#closePlanetCardBtn').on('click', function(){
+        $('#planetCardContainer').removeClass('flexClass');
+        $('#planetCardContainer').addClass('hiddenClass');
+        $('#backGalleryBtn').toggle();
+        $('#closePlanetCardBtn').toggle();
+    });
+
+    $('#backGalleryBtn').on('click', function(){
+        $('#planetCardContainer').removeClass('flexClass');
+        $('#planetCardContainer').addClass('hiddenClass');
+        $('#backGalleryBtn').toggle();
+        $('#closePlanetCardBtn').toggle();
+        $('#planetGalleryContainer').removeClass('hiddenClass');
+        $('#planetGalleryContainer').addClass('flexClass');
     });
 
     // Because of the confusing contexts, it's a little easier to do this than to handle each of the types of links properly
@@ -731,6 +747,14 @@ Galaxy.InteractionHandler.prototype = {
 
         // add listener to invoke hover EffectComposer
         var id = '#' + 'galleryBtn' + this.planetGatheredNum;
+        $(id).on('click', function(){
+            $('#planetCardContainer').removeClass('hiddenClass');
+            $('#planetCardContainer').addClass('flexClass');
+            $('#planetGalleryContainer').removeClass('flexClass');
+            $('#planetGalleryContainer').addClass('hiddenClass');
+            $('#backGalleryBtn').toggle();
+            $('#closePlanetCardBtn').toggle();
+        });
         $(id).hover(
             function(){
                 var foundPostFix = '-found.png'
