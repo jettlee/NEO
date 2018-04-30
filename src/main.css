@@ -603,8 +603,8 @@ body {
 #neomatterIcon {
     width: 55px;
     height: 55px;
-    margin-left: 30px;
-    margin-top: 50px;
+    margin-left: 3%;
+    margin-top: 3%;
     display: none;
 }
 
@@ -612,9 +612,17 @@ body {
     font-weight: 'Orbitron';
     color: #96bfb2;
     font-size: 20px;
-    padding-left: 7%;
-    padding-top:1.5%;
+    margin-left: 3%;
+    margin-top: 3%;
+    padding-left: 75px;
     display: none;
+}
+
+#myBar {
+    margin-left: 3%;
+    margin-top: 3%;
+    padding-top: 30px;
+    padding-left: 75px;
 }
 
 .planetGalleryContainer {
