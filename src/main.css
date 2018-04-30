@@ -179,6 +179,14 @@ body {
   zoom: 70%;
 }
 
+#inspectInst {
+  display: none;
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  zoom: 70%;
+}
+
 #div1 {
     display: block;
     position: absolute;
