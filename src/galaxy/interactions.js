@@ -2,6 +2,11 @@ var start = 0;
 var mapped = 0;
 var currnm = 30;
 var terminated = false;
+var apointClicked = false;
+var bpointClicked = false;
+var cpointClicked = false;
+var dpointClicked = false;
+var epointClicked = false;
 
 var galleryPrefix = "./images/PlanetGallery/";
 
@@ -74,8 +79,10 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
 
     var that = this;
     $('#three-canvas').on('click',this.canvasClickEvent);
-    $('#iframeSubmitButton').on('click', this.iframeSubmitClickEvent);
-    $('#iframeSubmitButton1').on('click', this.iframeSubmitClickEvent1);
+    // $('#iframeSubmitButton').on('click', this.iframeSubmitClickEvent);
+    // $('#iframeSubmitButton1').on('click', this.iframeSubmitClickEvent1);
+    $('#iframeInspectSubmitBtn').on('click', this.iframeSubmitClickEvent1);
+    $('#iframeCreateSubmitBtn').on('click', this.iframeSubmitClickEvent);
     $('#planetMap').on('click',this.showInformation);
     $('#inspectBtn').on('click',this.inspectIframe);
     $('#apoint').on('click',this.transitionToNGToInspect);

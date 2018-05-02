@@ -135,6 +135,29 @@ body {
   border:none
 }
 
+#iframeInspectSubmitBtn, #iframeCreateSubmitBtn {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  bottom: 5%;
+  left: 43%;
+  width: 15%;
+}
+
+.blackBox {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 7%;
+  top: 0;
+  background: black;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+
 #icon1 {
   display: block;
   position: absolute;
@@ -322,6 +345,14 @@ body {
   zoom: 50%;
 }
 
+#apointDisabled {
+  display: none;
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  zoom: 50%;
+}
+
 #apoint:hover ~ #ainfo {
   display: block;
 }
@@ -335,6 +366,14 @@ body {
 }
 
 #bpoint {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  zoom: 50%;
+}
+
+#bpointDisabled {
   display: none;
   position: absolute;
   top: 40%;
@@ -362,6 +401,14 @@ body {
   zoom: 50%;
 }
 
+#cpointDisabled {
+  display: none;
+  position: absolute;
+  top: 56%;
+  left: 45%;
+  zoom: 50%;
+}
+
 #cpoint:hover ~ #cinfo {
   display: block;
 }
@@ -382,6 +429,14 @@ body {
   zoom: 50%;
 }
 
+#dpointDisabled {
+  display: none;
+  position: absolute;
+  top: 60%;
+  left: 63%;
+  zoom: 50%;
+}
+
 #dpoint:hover ~ #dinfo {
   display: block;
 }
@@ -395,6 +450,14 @@ body {
 }
 
 #epoint {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 58%;
+  zoom: 50%;
+}
+
+#epointDisabled {
   display: none;
   position: absolute;
   top: 40%;
