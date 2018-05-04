@@ -399,6 +399,11 @@ Galaxy.InteractionHandler.prototype = {
             // $('#msty').hide();
 
             $('body').fadeOut(600, function(){
+                var imgPathPrefix = "images/Neuron";
+                var fileType = ".jpg";
+                var randomNum = Math.floor(Math.random() * 5) + 1;
+                var neuronImg = imgPathPrefix + randomNum + fileType;
+                $('#mapbg').attr("src", neuronImg);
                 document.getElementById("planetMap").style.display = "block";
                 clicked("stop");
                 $('body').fadeIn(600, function(){
