@@ -77,6 +77,7 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
     this.__constellation = null;
     this.__onscreenKeyboardView = null;
     this.planetGatheredNum = 0;
+    this.planetCardOn = false;
 
     var that = this;
     $('#three-canvas').on('click',this.canvasClickEvent);
@@ -110,18 +111,9 @@ Galaxy.InteractionHandler = function (camera, particleSystemsArray){
         }
     });
 
-    $('#closePlanetCardBtn').on('click', function(){
+    $('#planetCardContainer').on('click', function(){
         $('#planetCardContainer').removeClass('flexClass');
         $('#planetCardContainer').addClass('hiddenClass');
-        $('#backGalleryBtn').toggle();
-        $('#closePlanetCardBtn').toggle();
-    });
-
-    $('#backGalleryBtn').on('click', function(){
-        $('#planetCardContainer').removeClass('flexClass');
-        $('#planetCardContainer').addClass('hiddenClass');
-        $('#backGalleryBtn').toggle();
-        $('#closePlanetCardBtn').toggle();
         $('#planetGalleryContainer').removeClass('hiddenClass');
         $('#planetGalleryContainer').addClass('flexClass');
     });
@@ -668,6 +660,8 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     generatePlanetInGallery: function(imgPath) {
+        var self = this;
+
         // get gallery planet file path
         var str = imgPath.split("/");
         var galleryFilePath = galleryPrefix + str[str.length - 1];
@@ -681,12 +675,14 @@ Galaxy.InteractionHandler.prototype = {
         // add listener to invoke hover EffectComposer
         var id = '#' + 'galleryBtn' + this.planetGatheredNum;
         $(id).on('click', function(){
+            var cardPostFix = '-card.png';
+            var planetCardFilePath = galleryFilePath.substring(0, galleryFilePath.length - 4) + cardPostFix;
+            $('#planetCardImg').attr("src", planetCardFilePath);
             $('#planetCardContainer').removeClass('hiddenClass');
             $('#planetCardContainer').addClass('flexClass');
             $('#planetGalleryContainer').removeClass('flexClass');
             $('#planetGalleryContainer').addClass('hiddenClass');
-            $('#backGalleryBtn').toggle();
-            $('#closePlanetCardBtn').toggle();
+            self.planetCardOn = true;
         });
         $(id).hover(
             function(){
