@@ -127,7 +127,7 @@
       <img id="binfo" src="images/Inspect-infobox.png">
       <img id="cinfo" src="images/Inspect-infobox.png">
       <img id="dinfo" src="images/Inspect-infobox.png">
-      <img id="einfo" src="images/YeInspect-infoboxllowBoard.png">
+      <img id="einfo" src="images/Inspect-infobox.png">
       <img id="acreate" src="images/A.png" alt="">
       <img id="bcreate" src="images/B.png" alt="">
       <img id="ccreate" src="images/C.png" alt="">
@@ -145,17 +145,18 @@
       </div>
     </div>
     <div id="msty">
-      <img id="mstyDialogue1" src="images/Msty_NAVI1.png">
-      <img id="mstyDialogue2" src="images/Msty_NAVI2.png">
-      <img id="mstyDialogue3" src="images/Msty_NAVI3.png">
-      <img id="mstyDialogue4" src="images/Msty_3Dmap1.png">
-      <img id="mstyDialogue5" src="images/Msty_3Dmap2.png">
-      <img id="mstyDialogue6" src="images/Msty_3Dmap3.png">
-      <img id="mstyDialogue7" src="images/Msty_3Dmap4.png">
-      <img id="mstyDialogue8" src="images/Msty_3Dmap5.png">
-      <img id="mstyDialogue11" src="images/Msty_3Dmap6.png">
-      <img id="mstyDialogue9" src="images/Msty_PlanetPage1.png">
-      <img id="mstyDialogue10" src="images/Msty_PlanetPage2.png">
+      <img id="mstyDialogue1" src="images/msty1.png">
+      <img id="mstyDialogue2" src="images/msty2.png">
+      <img id="mstyDialogue3" src="images/msty3.png">
+      <img id="mstyDialogue4" src="images/msty4.png">
+      <img id="mstyDialogue5" src="images/msty5.png">
+      <img id="mstyDialogue6" src="images/msty6.png">
+      <img id="mstyDialogue7" src="images/msty7.png">
+      <img id="mstyDialogue8" src="images/msty8.png">
+      <img id="mstyDialogue9" src="images/msty9.png">
+      <img id="mstyDialogue10" src="images/msty10.png">
+      <img id="mstyDialogue11" src="images/msty11.png">
+      <img id="mstyDialogue12" src="images/msty12.png">
       <img id="mstyChar" src="images/Msty.gif" alt="">
     </div>
 
@@ -241,7 +242,7 @@
       $('#msty').show();
       $('#mstyDialogue1').show();
 
-      sleep(8000).then(() => {
+      sleep(3000).then(() => {
         $('#mstyDialogue1').hide();
         $('#mstyDialogue2').show();
       });
@@ -287,8 +288,8 @@
   }
 
   function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
+     return new Promise((resolve) => setTimeout(resolve, time));
+  }
 
     function allowDrop(ev) {
       ev.preventDefault();

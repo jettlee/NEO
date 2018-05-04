@@ -7,6 +7,7 @@ var bpointClicked = false;
 var cpointClicked = false;
 var dpointClicked = false;
 var epointClicked = false;
+var showInfo = false;
 
 var galleryPrefix = "./images/PlanetGallery/";
 
@@ -185,7 +186,10 @@ Galaxy.InteractionHandler.prototype = {
       $('body').fadeOut(600, function(){
         $('#planetGen').hide();
         $('#planetMap').show();
-        $('body').fadeIn(600, function(){});
+        $('body').fadeIn(600, function(){
+          $('#msty').show();
+          $('#mstyDialogue12').hide();
+        });
       });
     },
 
@@ -220,24 +224,16 @@ Galaxy.InteractionHandler.prototype = {
       // document.getElementById("currentPlayers").style.display = "block";
       // document.getElementById("coordinates").style.display = "block";
       // document.getElementById("poe").style.display = "block";
-      document.getElementById("inspectBtn").style.display = "block";
-      document.getElementById("createBtn").style.display = "block";
-      console.log(document.getElementById("mstyDialogue11").style.display);
-      if(document.getElementById("mstyDialogue11").style.display == "inline"){
+      var check = document.getElementById("mstyDialogue5").style.display
+      if(check == "inline" || check == "block") {
+        $('#mstyDialogue4').hide();
         $('#mstyDialogue5').hide();
-      } else{
+      } else {
+        $('#mstyDialogue4').hide();
         $('#mstyDialogue5').show();
       }
-
-      $('#mstyDialogue1').hide();
-      $('#mstyDialogue2').hide();
-      $('#mstyDialogue3').hide();
-      $('#mstyDialogue4').hide();
-      $('#mstyDialogue6').hide();
-      $('#mstyDialogue7').hide();
-      $('#mstyDialogue8').hide();
-      $('#mstyDialogue9').hide();
-      $('#mstyDialogue10').hide();
+      document.getElementById("inspectBtn").style.display = "block";
+      document.getElementById("createBtn").style.display = "block";
       // $('#apoint').hide();
       // $('#bpoint').hide();
       // $('#cpoint').hide();
@@ -272,19 +268,11 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     inspectIframe: function() {
+      // $('#mstyDialogue6').show();
       $('#inspectBtn').fadeOut(1100, function(){});
       $('#createBtn').fadeOut(1000, function(){});
       $('#mstyDialogue5').hide();
-      $('#mstyDialogue4').hide();
-      $('#mstyDialogue3').hide();
-      $('#mstyDialogue2').hide();
-      $('#mstyDialogue1').hide();
-      $('#mstyDialogue6').hide();
-      $('#mstyDialogue7').hide();
-      $('#mstyDialogue8').hide();
-      $('#mstyDialogue9').hide();
-      $('#mstyDialogue10').hide();
-      $('#mstyDialogue11').show();
+      $('#mstyDialogue6').show();
       document.getElementById("apoint").style.display = "block";
       document.getElementById("bpoint").style.display = "block";
       document.getElementById("cpoint").style.display = "block";
@@ -305,20 +293,13 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     createIframe: function() {
+
       if (updatenm() >= 50) {
         $('#inspectBtn').fadeOut(3000, function(){});
         $('#createBtn').fadeOut(3000, function(){});
-        $('#mstyDialogue11').show();
-        $('#mstyDialogue5').hide();
-        $('#mstyDialogue4').hide();
-        $('#mstyDialogue3').hide();
-        $('#mstyDialogue2').hide();
-        $('#mstyDialogue1').hide();
-        $('#mstyDialogue6').hide();
-        $('#mstyDialogue7').hide();
         $('#mstyDialogue8').hide();
-        $('#mstyDialogue9').hide();
-        $('#mstyDialogue10').hide();
+        $('#mstyDialogue5').hide();
+        $('#mstyDialogue9').show();
         document.getElementById("acreate").style.display = "block";
         document.getElementById("bcreate").style.display = "block";
         document.getElementById("ccreate").style.display = "block";
@@ -422,19 +403,12 @@ Galaxy.InteractionHandler.prototype = {
             document.getElementById("coordinates").style.display = "none";
             document.getElementById("poe").style.display = "none";
             // $('#msty').hide();
+
             $('body').fadeOut(600, function(){
                 document.getElementById("planetMap").style.display = "block";
                 clicked("stop");
                 $('body').fadeIn(600, function(){
-                  $('#mstyDialogue9').hide();
-                  $('#mstyDialogue10').hide();
                   $('#mstyDialogue3').hide();
-                  $('#mstyDialogue1').hide();
-                  $('#mstyDialogue2').hide();
-                  $('#mstyDialogue5').hide();
-                  $('#mstyDialogue6').hide();
-                  $('#mstyDialogue7').hide();
-                  $('#mstyDialogue8').hide();
                   $('#mstyDialogue4').show();
                 });
             })
@@ -469,16 +443,6 @@ Galaxy.InteractionHandler.prototype = {
           document.getElementById("planetMap").style.display = "block";
           clicked("stop");
           $('body').fadeIn(600, function(){
-            $('#mstyDialogue9').hide();
-            $('#mstyDialogue10').hide();
-            $('#mstyDialogue3').hide();
-            $('#mstyDialogue1').hide();
-            $('#mstyDialogue2').hide();
-            $('#mstyDialogue5').hide();
-            $('#mstyDialogue6').hide();
-            $('#mstyDialogue7').hide();
-            $('#mstyDialogue8').hide();
-            $('#mstyDialogue4').show();
           });
       })
     },
@@ -499,30 +463,7 @@ Galaxy.InteractionHandler.prototype = {
     iframeSubmitClickEvent1: function(e){
         // submit in inspecting
         $('#msty').show();
-        $('#mstyDialogue6').show();
-        $('#mstyDialogue8').hide();
-        $('#mstyDialogue7').hide();
-        $('#mstyDialogue5').hide();
-        $('#mstyDialogue4').hide();
-        $('#mstyDialogue3').hide();
-        $('#mstyDialogue2').hide();
-        $('#mstyDialogue1').hide();
-        $('#mstyDialogue9').hide();
-        $('#mstyDialogue10').hide();
-        $('#mstyDialogue11').hide();
-        sleep(11000).then(() => {
-          $('#mstyDialogue6').hide();
-          $('#mstyDialogue7').show();
-          $('#mstyDialogue5').hide();
-          $('#mstyDialogue4').hide();
-          $('#mstyDialogue3').hide();
-          $('#mstyDialogue2').hide();
-          $('#mstyDialogue1').hide();
-          $('#mstyDialogue8').hide();
-          $('#mstyDialogue9').hide();
-          $('#mstyDialogue10').hide();
-          $('#mstyDialogue11').hide();
-        });
+        $('#mstyDialogue6').hide();
         var self = this;
         var countForFlags = 0;
         $('body').fadeOut(600, function(){
@@ -571,6 +512,15 @@ Galaxy.InteractionHandler.prototype = {
         }
         // socket.emit('changeNeomatter', 5 * countForFlags);
         updatenm(20*countForFlags);
+        if(countForFlags > 0) {
+          $('#mstyDialogue7').show();
+          sleep(5000).then(() => {
+            $('#mstyDialogue7').hide();
+            $('#mstyDialogue8').show();
+          });
+        } else {
+          $('#mstyDialogue5').show();
+        }
         console.log("\nFlags are "+countForFlags+"\n");
         $('body').fadeIn(600, function(){
             self.updateProgressBar();
@@ -587,29 +537,15 @@ Galaxy.InteractionHandler.prototype = {
         // submit in mapping
         $('#mapInst').hide();
         $('#msty').show();
-        $('#mstyDialogue8').hide();
-        $('#mstyDialogue7').hide();
-        $('#mstyDialogue6').hide();
-        $('#mstyDialogue5').hide();
-        $('#mstyDialogue4').hide();
-        $('#mstyDialogue3').hide();
-        $('#mstyDialogue2').hide();
-        $('#mstyDialogue1').hide();
-        $('#mstyDialogue10').hide();
-        $('#mstyDialogue11').hide();
-        $('#mstyDialogue9').show();
-        sleep(6000).then(() => {
-          $('#mstyDialogue6').hide();
-          $('#mstyDialogue7').hide();
-          $('#mstyDialogue5').hide();
-          $('#mstyDialogue4').hide();
-          $('#mstyDialogue3').hide();
-          $('#mstyDialogue2').hide();
-          $('#mstyDialogue1').hide();
-          $('#mstyDialogue8').hide();
-          $('#mstyDialogue9').hide();
-          $('#mstyDialogue10').show();
+        $('#mstyDialogue9').hide();
+        $('#mstyDialogue10').show();
+        sleep(3000).then(() => {
+          $('#mstyDialogue10').hide();
+          $('#mstyDialogue11').show();
+        });
+        sleep(3000).then(() => {
           $('#mstyDialogue11').hide();
+          $('#mstyDialogue12').show();
         });
         // socket.emit('changeNeomatter', -50);
         //updatenm(-50);
@@ -658,17 +594,7 @@ Galaxy.InteractionHandler.prototype = {
       })
     } else {
       $('#msty').show();
-      $('#mstyDialogue1').hide();
-      $('#mstyDialogue2').hide();
-      $('#mstyDialogue3').hide();
-      $('#mstyDialogue4').hide();
-      $('#mstyDialogue6').hide();
-      $('#mstyDialogue7').hide();
-      $('#mstyDialogue5').hide();
       $('#mstyDialogue9').hide();
-      $('#mstyDialogue10').hide();
-      $('#mstyDialogue11').hide();
-      $('#mstyDialogue8').show();
       $('#apoint').hide();
       $('#bpoint').hide();
       $('#cpoint').hide();

@@ -140,7 +140,7 @@ body {
   position: absolute;
   z-index: 10;
   bottom: 5%;
-  left: 43%;
+  left: 42%;
   width: 15%;
 }
 
@@ -205,7 +205,7 @@ body {
 #inspectInst {
   display: none;
   position: absolute;
-  top: 5%;
+  top: 8%;
   left: 2%;
   zoom: 70%;
 }
@@ -543,7 +543,7 @@ body {
   left: 18%;
 }
 
-#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4, #mstyDialogue5, #mstyDialogue6, #mstyDialogue7, #mstyDialogue8, #mstyDialogue9, #mstyDialogue10, #mstyDialogue11 {
+#mstyDialogue1, #mstyDialogue2, #mstyDialogue3, #mstyDialogue4, #mstyDialogue5, #mstyDialogue6, #mstyDialogue7, #mstyDialogue8, #mstyDialogue9, #mstyDialogue10, #mstyDialogue11, #mstyDialogue12 {
   display: none;
   width: 60%;
   margin-left: 5%;
