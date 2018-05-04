@@ -7,7 +7,7 @@ var bpointClicked = false;
 var cpointClicked = false;
 var dpointClicked = false;
 var epointClicked = false;
-var showInfo = false;
+var inspectClicked = false;
 
 var galleryPrefix = "./images/PlanetGallery/";
 
@@ -216,11 +216,12 @@ Galaxy.InteractionHandler.prototype = {
       // document.getElementById("currentPlayers").style.display = "block";
       // document.getElementById("coordinates").style.display = "block";
       // document.getElementById("poe").style.display = "block";
-      var check = document.getElementById("mstyDialogue5").style.display
-      if(check == "inline" || check == "block") {
+      var check = document.getElementById("mstyDialogue5").style.display;
+      if(inspectClicked) {
         $('#mstyDialogue4').hide();
         $('#mstyDialogue5').hide();
       } else {
+        inspectClicked == false;
         $('#mstyDialogue4').hide();
         $('#mstyDialogue5').show();
       }
@@ -260,6 +261,7 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     inspectIframe: function() {
+      inspectClicked = true;
       // $('#mstyDialogue6').show();
       $('#inspectBtn').fadeOut(1100, function(){});
       $('#createBtn').fadeOut(1000, function(){});
