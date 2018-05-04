@@ -340,8 +340,8 @@ body {
 #apoint {
   display: none;
   position: absolute;
-  top: 31%;
-  left: 50%;
+  top: 34%;
+  left: 53%;
   zoom: 50%;
 }
 
@@ -361,14 +361,14 @@ body {
   display: none;
   position: absolute;
   height: 20%;
-  top: 31%;
-  left: 54%;
+  top: 34%;
+  left: 57%;
 }
 
 #bpoint {
   display: none;
   position: absolute;
-  top: 40%;
+  top: 41%;
   left: 40%;
   zoom: 50%;
 }
@@ -389,7 +389,7 @@ body {
   display: none;
   position: absolute;
   height: 20%;
-  top: 40%;
+  top: 41%;
   left: 44%;
 }
 
@@ -397,7 +397,7 @@ body {
   display: none;
   position: absolute;
   top: 56%;
-  left: 45%;
+  left: 44%;
   zoom: 50%;
 }
 
@@ -418,13 +418,13 @@ body {
   position: absolute;
   height: 20%;
   top: 56%;
-  left: 49%;
+  left: 48%;
 }
 
 #dpoint {
   display: none;
   position: absolute;
-  top: 60%;
+  top: 52%;
   left: 63%;
   zoom: 50%;
 }
@@ -445,7 +445,7 @@ body {
   display: none;
   position: absolute;
   height: 20%;
-  top: 60%;
+  top: 52%;
   left: 67%;
 }
 
