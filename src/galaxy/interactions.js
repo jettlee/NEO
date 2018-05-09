@@ -2,11 +2,6 @@ var start = 0;
 var mapped = 0;
 var currnm = 30;
 var terminated = false;
-var apointClicked = false;
-var bpointClicked = false;
-var cpointClicked = false;
-var dpointClicked = false;
-var epointClicked = false;
 var inspectClicked = false;
 
 var galleryPrefix = "./images/PlanetGallery/";
@@ -212,10 +207,6 @@ Galaxy.InteractionHandler.prototype = {
     },
 
     showInformation: function(){
-      // document.getElementById("title-info").style.display = "block";
-      // document.getElementById("currentPlayers").style.display = "block";
-      // document.getElementById("coordinates").style.display = "block";
-      // document.getElementById("poe").style.display = "block";
       var check = document.getElementById("mstyDialogue5").style.display;
       if(inspectClicked) {
         $('#mstyDialogue4').hide();
