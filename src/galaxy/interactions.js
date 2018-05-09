@@ -393,6 +393,7 @@ Galaxy.InteractionHandler.prototype = {
                 var imgPathPrefix = "images/Neuron";
                 var fileType = ".jpg";
                 var randomNum = Math.floor(Math.random() * 5) + 1;
+                console.log(randomNum);
                 var neuronImg = imgPathPrefix + randomNum + fileType;
                 $('#mapbg').attr("src", neuronImg);
                 document.getElementById("planetMap").style.display = "block";
